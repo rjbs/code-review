@@ -82,7 +82,7 @@ Config-INI:
 Config-INI-Reader-Ordered:
   last-review: 2016-08-19
 Config-MVP:
-  last-review: 2015-08-10
+  last-review: 2016-11-19
 Config-MVP-Reader-INI:
   last-review: 2016-10-19
 Config-Singleton:
@@ -117,7 +117,7 @@ Data-Rx-Type-PCRE:
 Data-Rx-TypeBundle-Perl:
   last-review: 2016-08-19
 Data-Section:
-  last-review: 2015-10-19
+  last-review: 2016-11-19
 Data-TagHive:
   last-review: 2016-08-19
 Data-UUID:
@@ -312,7 +312,7 @@ MIME-Lite:
   last-review: 2013-11-04
   review: never
 MRO-Magic:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Macro-Micro:
   last-review: 2016-10-31
 Mail-Audit:
@@ -385,42 +385,42 @@ MooseX-OneArgNew:
 MooseX-SetOnce:
   last-review: 2016-07-11
 MooseX-Storage-Format-JSONpm:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 MooseX-Types-Perl:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Net-Continental:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Net-DNS-GuessTZ:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Net-Delicious:
   review: never
 Net-Finger-Server:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Net-SMTP-SSL:
   last-review: 2016-10-09
   review: never
 Number-Nary:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Number-Tolerant:
   last-review: 2016-10-19
 Object-Annotate:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Object-Capsule:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Package-Generator:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Parse-GutenbergRoget:
   last-review: 2016-10-09
 Parse-IRCLog:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Path-Resolver:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 PathTools:
   review: never
 Perl-Critic-Lax:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Perl-Critic-Tics:
-  last-review: 2015-12-03
+  last-review: 2016-11-19
 Perl-PrereqScanner:
   last-review: 2016-10-19
 Pod-CYOA:
