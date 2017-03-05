@@ -143,7 +143,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Pod-Eventual                            | 2016-10-09
 | RTF-VimColor                            | 2016-10-09
 | Email-LocalDelivery                     | 2016-10-13
-| Email-MIME                              | 2016-10-13
 | HTML-Widget-Factory                     | 2016-10-13
 | Querylet                                | 2016-10-13
 | Rubric                                  | 2016-10-13
@@ -226,4 +225,5 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Perl-Critic-Lax                         | 2016-11-19
 | Perl-Critic-Tics                        | 2016-11-19
 | Dist-Zilla                              | 2017-03-04
+| Email-MIME                              | 2017-03-04
 | Test-Abortable                          | 2017-03-04
