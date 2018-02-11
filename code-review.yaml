@@ -217,7 +217,7 @@ Email-Sender:
 Email-Sender-Transport-SQLite:
   last-review: 2016-10-31
 Email-Simple:
-  last-review: 2015-12-03
+  last-review: 2018-02-11
 Email-Simple-FromHandle:
   last-review: 2016-10-31
 Email-Simple-Test-TraceHeaders:

@@ -28,7 +28,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Email-Address                           | 2015-11-13
 | Software-License                        | 2015-11-19
 | Throwable                               | 2015-11-22
-| Email-Simple                            | 2015-12-03
 | Pod-Coverage-TrustPod                   | 2015-12-03
 | Pod-Elemental                           | 2015-12-03
 | Pod-Elemental-PerlMunger                | 2015-12-03
@@ -227,3 +226,4 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | E-Mail-Acme                             | 2017-08-02
 | Email-MIME-ContentType                  | 2017-08-02
 | Dist-Zilla                              | 2018-02-11
+| Email-Simple                            | 2018-02-11
