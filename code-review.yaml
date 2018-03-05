@@ -426,7 +426,7 @@ Perl-PrereqScanner:
 Pod-CYOA:
   last-review: 2016-08-19
 Pod-Coverage-TrustPod:
-  last-review: 2015-12-03
+  last-review: 2018-03-04
 Pod-Elemental:
   last-review: 2015-12-03
 Pod-Elemental-PerlMunger:
