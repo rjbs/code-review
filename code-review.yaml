@@ -20,7 +20,7 @@ App-Addex-Plugin-Nobody:
 App-Cmd:
   last-review: 2016-08-19
 App-Cmd-Plugin-Prompt:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 App-Cronjob:
   last-review: 2017-03-12
 App-Smarkmail:
@@ -137,7 +137,7 @@ Dist-Zilla-Plugin-PodPurler:
 Dist-Zilla-Plugin-PodWeaver:
   last-review: 2016-10-19
 Dist-Zilla-Plugin-TaskWeaver:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Dist-Zilla-PluginBundle-RJBS:
   last-review: 2017-08-02
 E-Mail-Acme:
@@ -186,7 +186,7 @@ Email-MIME-ContentType:
 Email-MIME-Encodings:
   last-review: 2016-10-31
 Email-MIME-Kit:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Email-MIME-Kit-Assembler-Markdown:
   last-review: 2016-10-31
 Email-MIME-Kit-Assembler-TextifyHTML:
@@ -228,7 +228,7 @@ Email-Stuff:
   last-review: 2015-10-19
   review: never
 Email-Stuffer:
-  last-review: 2016-04-30
+  last-review: 2018-03-10
 Email-Thread:
   last-review: 2016-10-31
 Email-Valid:
@@ -291,11 +291,11 @@ Image-MetaData-JPEG:
   last-review: 2016-10-09
   review: never
 JMAP-Tester:
-  last-review: 2016-07-04
+  last-review: 2018-03-10
 JSON-CPAN-Meta:
   review: never
 JSON-Typist:
-  last-review: 2016-04-24
+  last-review: 2018-03-10
 Kwiki-IRCMode:
   review: never
 List-MapList:
@@ -432,90 +432,90 @@ Pod-Elemental:
 Pod-Elemental-PerlMunger:
   last-review: 2015-12-03
 Pod-Elemental-Transformer-List:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Pod-Elemental-Transformer-PPIHTML:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Pod-Elemental-Transformer-SynHi:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Pod-Elemental-Transformer-VimHTML:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Pod-Eventual:
   last-review: 2016-10-09
 Pod-Weaver:
   last-review: 2016-09-18
 Postfix-Parse-Mailq:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Process-Status:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 PyTAP:
   home: GitHub
   last-review: 2016-05-14
 Querylet:
   last-review: 2016-10-13
 Querylet-CGI:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Querylet-Output-Excel-OLE:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Querylet-Output-Excel-XLS:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Querylet-Output-Text:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 RTF-VimColor:
   last-review: 2016-10-09
 Religion-Bible-Reference:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Return-Value:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Role-HasMessage:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Role-HasPayload:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Role-Identifiable:
   last-review: 2015-10-19
 Role-Subsystem:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Router-Dumb:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Rubric:
   last-review: 2016-10-13
 Rubric-Entry-Formatter-KwikiFormatish:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Rubric-Entry-Formatter-Markdown:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Software-License:
   last-review: 2015-11-19
 Sort-ByExample:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 String-Errf:
   last-review: 2016-07-04
 String-Flogger:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 String-Formatter:
   last-review: 2016-07-11
 String-RewritePrefix:
   last-review: 2015-12-03
 String-TagString:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 String-Truncate:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Exporter:
   last-review: 2017-03-12
 Sub-Exporter-ForMethods:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Exporter-GlobExporter:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Exporter-Lexical:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Import:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Install:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-MicroSig:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Sub-Pipeline:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Task-BeLike-RJBS:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Task-Deprecations5_12:
   last-review: 2013-06-20
   review: never
@@ -531,7 +531,7 @@ Template-Mustache:
 Test-Abortable:
   last-review: 2017-03-04
 Test-BinaryData:
-  last-review: 2015-12-03
+  last-review: 2018-03-10
 Test-Class:
   last-review: 2013-11-30
   review: never
@@ -542,7 +542,7 @@ Test-FITesque:
 Test-Fatal:
   last-review: 2016-02-06
 Test-MinimumVersion:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Test-Reporter-HTTPGateway:
   last-review: 2013-06-20
   review: never
@@ -559,9 +559,9 @@ Text-Soundex:
 Throwable:
   last-review: 2015-11-22
 Throwable-X:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Time-Duration-Object:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Time-HiRes:
   last-review: 2015-11-19
   review: never
@@ -569,22 +569,22 @@ Time-Piece:
   last-review: 2015-11-09
   review: never
 Time-Piece-MSSQL:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Tree-File:
   review: never
 Try-Tiny:
   review: never
 URI-cpan:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 Version-Requirements:
   last-review: 2013-06-20
   review: never
 WWW-AdventCalendar:
   last-review: 2017-07-30
 WebService-RTMAgent:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 ZMachine:
-  last-review: 2015-12-06
+  last-review: 2018-03-10
 autouse:
   review: never
 base:
