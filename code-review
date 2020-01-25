@@ -279,8 +279,7 @@ sub cpan_notes {
     push @notes, "dist not built with Dist::Zilla";
   }
 
-  # CPANTS appears dead or down. -- rjbs, 2020-01-25
-  if (0) {
+  {
     my $res = $ua->get(
       "http://cpants.cpanauthors.org/dist/$name.json",
     );
