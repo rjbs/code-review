@@ -109,7 +109,7 @@ Data-Message:
 Data-OptList:
   last-review: 2016-08-19
 Data-Rx:
-  last-review: 2015-08-31
+  last-review: 2020-01-25
 Data-Rx-Type-MooseTC:
   last-review: 2016-08-19
 Data-Rx-Type-PCRE:
@@ -428,7 +428,7 @@ Pod-CYOA:
 Pod-Coverage-TrustPod:
   last-review: 2018-03-04
 Pod-Elemental:
-  last-review: 2015-12-03
+  last-review: 2020-01-25
 Pod-Elemental-PerlMunger:
   last-review: 2015-12-03
 Pod-Elemental-Transformer-List:
@@ -493,7 +493,7 @@ String-Flogger:
 String-Formatter:
   last-review: 2016-07-11
 String-RewritePrefix:
-  last-review: 2015-12-03
+  last-review: 2020-01-25
 String-TagString:
   last-review: 2018-03-10
 String-Truncate:
