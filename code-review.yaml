@@ -126,7 +126,7 @@ Data-UUID:
 Date-Span:
   last-review: 2016-08-19
 Dist-Zilla:
-  last-review: 2018-02-11
+  last-review: 2020-01-25
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2017-03-12
@@ -537,6 +537,8 @@ Test-Class:
   review: never
 Test-Deep:
   last-review: 2016-11-05
+Test-Deep-HashRec:
+  last-review: 2020-01-25
 Test-FITesque:
   review: never
 Test-Fatal:
