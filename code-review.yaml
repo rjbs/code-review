@@ -281,7 +281,7 @@ HTML-Widget-Plugin-JS:
 HTML-Widget-Plugin-Struct:
   last-review: 2016-10-31
 HTTP-Throwable:
-  last-review: 2016-01-02
+  last-review: 2020-01-26
 IO-TieCombine:
   last-review: 2016-10-31
 IPC-Run3:
@@ -542,7 +542,7 @@ Test-Deep-HashRec:
 Test-FITesque:
   review: never
 Test-Fatal:
-  last-review: 2016-02-06
+  last-review: 2020-01-26
 Test-MinimumVersion:
   last-review: 2018-03-10
 Test-Reporter-HTTPGateway:
