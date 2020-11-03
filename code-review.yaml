@@ -304,7 +304,8 @@ Log-Dispatch-Array:
   last-review: 2016-10-31
 Log-Dispatch-TextTable:
   last-review: 2016-10-31
-Log-Dispatch-UnixSyslog: {}
+Log-Dispatch-UnixSyslog:
+  last-review: 2020-11-02
 Log-Dispatchouli:
   last-review: 2016-07-30
 MIME-BodyMunger:
