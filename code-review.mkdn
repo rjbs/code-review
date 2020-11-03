@@ -21,6 +21,7 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
+| Log-Dispatch-UnixSyslog                 | -
 | Role-Identifiable                       | 2015-10-19
 | Mail-DeliveryStatus-BounceParser        | 2015-10-26
 | Software-License                        | 2015-11-19
@@ -227,4 +228,4 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Test-Deep-HashRec                       | 2020-01-25
 | HTTP-Throwable                          | 2020-01-26
 | Test-Fatal                              | 2020-01-26
-| Dist-Zilla                              | 2020-06-07
+| Dist-Zilla                              | 2020-11-02

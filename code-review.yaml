@@ -126,7 +126,7 @@ Data-UUID:
 Date-Span:
   last-review: 2016-08-19
 Dist-Zilla:
-  last-review: 2020-06-07
+  last-review: 2020-11-02
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2017-03-12
@@ -304,6 +304,7 @@ Log-Dispatch-Array:
   last-review: 2016-10-31
 Log-Dispatch-TextTable:
   last-review: 2016-10-31
+Log-Dispatch-UnixSyslog: {}
 Log-Dispatchouli:
   last-review: 2016-07-30
 MIME-BodyMunger:
