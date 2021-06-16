@@ -5,7 +5,7 @@ use warnings;
 use DateTime;
 use DateTime::Format::Strptime;
 use Getopt::Long::Descriptive;
-use JSON;
+use JSON::MaybeXS;
 use List::AllUtils qw(part uniq);
 use LWP::UserAgent;
 use MetaCPAN::Client;
@@ -30,6 +30,8 @@ my ($opt, $usage) = describe_options(
 
 die "--message without --rebuild or --project is nonsensical"
   if $opt->message and not ($opt->rebuild or $opt->project);
+
+my $JSON = JSON::MaybeXS->new->pretty->canonical;
 
 my $mcpan = MetaCPAN::Client->new;
 
@@ -219,7 +221,7 @@ sub rt_data {
       'https://rt.cpan.org/Public/bugs-per-dist.json'
     );
     die "Can't get RT bug count JSON" unless $res->is_success;
-    my $bug_count = JSON->new->decode($res->decoded_content);
+    my $bug_count = $JSON->decode($res->decoded_content);
     for my $name (@projects) {
       next unless $bug_count->{$name};
       $rt_data{ $name } = {
@@ -285,7 +287,7 @@ sub cpan_notes {
     );
 
     if ($res->is_success) {
-      my $data = JSON->new->decode($res->decoded_content);
+      my $data = $JSON->decode($res->decoded_content);
       for my $result (@{ $data->{kwalitee}[0] }) {
         next if $result->{value};
         next if $result->{is_experimental};
@@ -315,7 +317,7 @@ sub gh_notes {
     }
   }
 
-  my $repo = JSON->new->decode($res->decoded_content);
+  my $repo = $JSON->decode($res->decoded_content);
 
   push @notes, "GitHub default branch is master"
     if $repo->{default_branch} eq 'master';
