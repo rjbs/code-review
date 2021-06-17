@@ -132,7 +132,7 @@ my $mate = RJBS::CodeReview->new({
 activityloop($mate->activity(boot => { projects => \@projects }));
 
 say q{};
-matesay("Onya, buddy, you're all done!  Catch you later!");
+matesay("Good job reviewing!");
 
 exit;
 
