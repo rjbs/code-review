@@ -295,16 +295,33 @@ package RJBS::CodeReview::Activity::Review {
     }
   );
 
-  command 'o.pen' => (
-    help  => {
+  command 'github' => (
+    aliases => [ 'gh' ],
+    help    => {
       summary => "open the project's GitHub page in a browser",
     },
     sub ($self, $cmd, $rest) {
       $self->assert_queue_not_empty;
-      my $project = $self->queue->get_current;
+      my $name = $self->queue->get_current->{id};
 
-      my $repo = qq{https://github.com/rjbs/$project->{id}/}; # Naive.
-      system("open", $repo);
+      my $link = qq{https://github.com/rjbs/$name/}; # Naive.
+      system("open", $link);
+      okaysay "Opened in your browser: $link";
+      cmdnext;
+    },
+  );
+
+  command 'rt.cpan' => (
+    help    => {
+      summary => "open the project's rt.cpan.org queue in a browser",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      my $name = $self->queue->get_current->{id};
+
+      my $link = qq{https://rt.cpan.org/Dist/Display.html?Name=$name};
+      system("open", $link);
+      okaysay "Opened in your browser: $link";
       cmdnext;
     },
   );
