@@ -3,7 +3,8 @@ Acme-Lingua-EN-Inflect-Modern:
   last-review: 2016-08-19
 Acme-ProgressBar:
   last-review: 2016-08-19
-Algorithm-Diff: {}
+Algorithm-Diff:
+  last-review: 2021-06-17
 Amce-CNA:
   last-review: 2016-08-19
 App-Addex:
@@ -433,7 +434,7 @@ Pod-Coverage-TrustPod:
 Pod-Elemental:
   last-review: 2020-01-25
 Pod-Elemental-PerlMunger:
-  last-review: 2015-12-03
+  last-review: 2021-06-17
 Pod-Elemental-Transformer-List:
   last-review: 2018-03-10
 Pod-Elemental-Transformer-PPIHTML:
@@ -474,7 +475,7 @@ Role-HasMessage:
 Role-HasPayload:
   last-review: 2018-03-10
 Role-Identifiable:
-  last-review: 2015-10-19
+  last-review: 2021-06-17
 Role-Subsystem:
   last-review: 2018-03-10
 Router-Dumb:

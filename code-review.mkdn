@@ -21,12 +21,9 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
-| Algorithm-Diff                          | -
-| Role-Identifiable                       | 2015-10-19
 | Mail-DeliveryStatus-BounceParser        | 2015-10-26
 | Software-License                        | 2015-11-19
 | Throwable                               | 2015-11-22
-| Pod-Elemental-PerlMunger                | 2015-12-03
 | PyTAP                                   | 2016-05-14
 | String-Errf                             | 2016-07-04
 | MooseX-SetOnce                          | 2016-07-11
@@ -230,3 +227,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Test-Fatal                              | 2020-01-26
 | Log-Dispatch-UnixSyslog                 | 2020-11-02
 | Dist-Zilla                              | 2021-06-16
+| Algorithm-Diff                          | 2021-06-17
+| Pod-Elemental-PerlMunger                | 2021-06-17
+| Role-Identifiable                       | 2021-06-17
