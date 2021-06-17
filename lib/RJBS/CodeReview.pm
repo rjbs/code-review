@@ -160,6 +160,25 @@ package RJBS::CodeReview::Activity::Review {
     return $self;
   }
 
+  sub _execute_autoreview ($self)  {
+    PROJECT: while ($self->queue->maybe_next) {
+      my $project = $self->queue->get_current;
+      my $notes = $self->_get_notes($project);
+
+      if (@$notes) {
+        # We hit a project with problems.  Let's stop and work on it.
+        cmdnext;
+      }
+
+      my $name = $project->{name};
+      matesay "$name - No problems!  Great, moving on!";
+      main::mark_reviewed($name, "reviewed $name, no problems");
+    }
+
+    matesay("We got to the end of the queue!  Wow!");
+    cmdnext;
+  }
+
   command 'q.uit' => (
     aliases => [ 'exit' ],
     help    => {
@@ -181,7 +200,7 @@ package RJBS::CodeReview::Activity::Review {
       main::mark_reviewed($project->{name});
 
       okaysay("Cool, $project->{name} has been reviewed!");
-      cmdnext;
+      $self->_execute_autoreview;
     }
   );
 
@@ -208,22 +227,8 @@ package RJBS::CodeReview::Activity::Review {
     },
     sub ($self, $cmd, $rest) {
       $self->assert_queue_not_empty;
-      PROJECT: while ($self->queue->maybe_next) {
-        my $project = $self->queue->get_current;
-        my $notes = $self->_get_notes($project);
+      $self->_execute_autoreview;
 
-        if (@$notes) {
-          # We hit a project with problems.  Let's stop and work on it.
-          cmdnext;
-        }
-
-        my $name = $project->{name};
-        matesay "$name - No problems!  Great, moving on!";
-        main::mark_reviewed($name, "reviewed $name, no problems");
-      }
-
-      matesay("We got to the end of the queue!  Wow!");
-      cmdnext;
     }
   );
 
