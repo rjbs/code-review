@@ -9,7 +9,21 @@ with 'CliM8::App';
 
 use experimental 'signatures';
 
+use JSON::MaybeXS ();
+
 sub name { 'code-review' }
+
+has json => (
+  is => 'ro',
+  init_arg => undef,
+  default  => sub {
+    JSON::MaybeXS->new->pretty->canonical;
+  },
+);
+
+sub decode_json_res ($self, $res) {
+  return $self->json->decode( $res->decoded_content(charset => undef) );
+}
 
 my %ACTIVITY = (
   boot    => 'RJBS::CodeReview::Activity::Boot',

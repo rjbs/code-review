@@ -5,12 +5,9 @@ use warnings;
 binmode *STDOUT, ':encoding(UTF-8)';
 binmode *STDERR, ':encoding(UTF-8)';
 
-use lib '/Users/rjbs/fm/code/LP-Tools/lib';
-
 use DateTime;
 use DateTime::Format::Strptime;
 use Getopt::Long::Descriptive;
-use JSON::MaybeXS;
 use List::AllUtils qw(part uniq);
 use LWP::UserAgent;
 use MetaCPAN::Client;
@@ -19,8 +16,12 @@ use Term::ReadKey ();
 use Time::Duration::Parse;
 use YAML::XS ();
 
+use lib '/Users/rjbs/fm/code/LP-Tools/lib';
 use CliM8::Util qw(activityloop matesay);
 use CliM8::HTTP;
+
+use lib 'lib';
+require RJBS::CodeReview;
 
 our $http = CliM8::HTTP->new;
 
@@ -49,9 +50,9 @@ if ($opt->tmux && ! $ENV{TMUX}) {
   die "Tried to exec tmux but we're still here.  What?!\n";
 }
 
-my $JSON = JSON::MaybeXS->new->pretty->canonical;
-
-my $mcpan = MetaCPAN::Client->new;
+my $mate = RJBS::CodeReview->new({
+  http_agent => $http,
+});
 
 my $saved = YAML::XS::LoadFile('code-review.yaml');
 
@@ -61,7 +62,7 @@ my $res = $http->do_request(
 )->get;
 
 die "Can't get latest CPAN releases" unless $res->is_success;
-my $releases = $JSON->decode($res->decoded_content);
+my $releases = $mate->decode_json_res($res);
 
 my %is_tracked = map {; $_ => scalar(($saved->{$_}{review} // '') ne 'never') }
                  keys %$saved;
@@ -115,13 +116,6 @@ if ($opt->project) {
   do_review(undef, $opt->message);
   exit;
 }
-
-use lib 'lib';
-require RJBS::CodeReview;
-
-my $mate = RJBS::CodeReview->new({
-  http_agent => $http,
-});
 
 activityloop($mate->activity(boot => { projects => \@projects }));
 
@@ -231,7 +225,7 @@ sub rt_data {
     )->get;
 
     die "Can't get RT bug count JSON" unless $res->is_success;
-    my $bug_count = $JSON->decode($res->decoded_content);
+    my $bug_count = $mate->decode_json_res($res);
     for my $name (@projects) {
       next unless $bug_count->{$name};
       $rt_data{ $name } = {
@@ -252,6 +246,7 @@ sub rt_data {
 sub cpan_notes {
   my ($name) = @_;
 
+  state $mcpan = MetaCPAN::Client->new;
   my $release = eval { $mcpan->release( $name ) };
   return ("couldn't find dist on metacpan") unless $release;
 
@@ -298,7 +293,7 @@ sub cpan_notes {
     )->get;
 
     if ($res->is_success) {
-      my $data = $JSON->decode($res->decoded_content);
+      my $data = $mate->decode_json_res($res);
       for my $result (@{ $data->{kwalitee}[0] }) {
         next if $result->{value};
         next if $result->{is_experimental};
@@ -329,7 +324,7 @@ sub gh_notes {
     return ("Couldn't get repo data for $gh_user/$gh_repo_name from GitHub");
   }
 
-  my $repo = $JSON->decode($res->decoded_content);
+  my $repo = $mate->decode_json_res($res);
 
   push @notes, "GitHub default branch is master"
     if $repo->{default_branch} eq 'master';
