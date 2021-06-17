@@ -203,6 +203,14 @@ END_HEADER
   close $mkdn or die "error closing mkdn: $!";
 
   system(qw(git add), <code-review.*>) and die "git-add failed\n";
+
+  my $lines = `git diff --staged`;
+  chomp $lines;
+  unless (length $lines) {
+    say "No changes to commit";
+    return;
+  }
+
   system(qw(git commit -m), $msg)  and die "git-commit failed\n";
 }
 
