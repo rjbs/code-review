@@ -37,6 +37,7 @@ package RJBS::CodeReview::Activity::Boot {
     my $activity = $self->app->activity(
       'review',
       {
+        begin_with_autoreview => 1,
         queue => RJBS::CodeReview::ReviewQueue->new({
           items => [ map {; +{ id => $_ } } $self->projects->@* ],
           query => undef, # XXX This is obviously stupid. -- rjbs, 2021-06-17
@@ -117,6 +118,11 @@ package RJBS::CodeReview::Activity::Review {
 
   __PACKAGE__->add_queue_commands;
 
+  has _do_autoreview => (
+    is => 'rw',
+    init_arg => 'begin_with_autoreview',
+  );
+
   has queue => (is => 'ro', required => 1);
 
   sub maybe_describe_item ($self, $item, $needle) {
@@ -148,6 +154,11 @@ package RJBS::CodeReview::Activity::Review {
       say "=== $project->{id} ==========";
       printf "    %s\n", $_ for $self->_get_notes($project)->@*;
       $self->last_interacted_project_id($project ? $project->{id} : undef);
+    }
+
+    if ($self->_do_autoreview) {
+      $self->_do_autoreview(0);
+      $self->_execute_autoreview;
     }
 
     say q{};
