@@ -10,11 +10,14 @@ use List::AllUtils qw(part uniq);
 use LWP::UserAgent;
 use MetaCPAN::Client;
 use Parse::CPAN::Packages::Fast;
+use String::ShellQuote;
 use Term::ReadKey ();
 use Time::Duration::Parse;
 use YAML::XS ();
 
 $|++;
+
+my @orig_argv = @ARGV;
 
 my ($opt, $usage) = describe_options(
   '%c %o',
@@ -23,6 +26,7 @@ my ($opt, $usage) = describe_options(
   [ 'message|m=s'  => "commit message"                         ],
   [ 'pauseid=s'    => "your PAUSE id",  { default => uc $ENV{USER} } ],
   [ 'githubid=s'   => "your GitHub id", { default =>    $ENV{USER} } ],
+  [ 'tmux!'        => 'ensure running under tmux', { default => 1 } ],
   [ 'local-cpan=s' => "where's your local cpan?", { default =>
       "$ENV{HOME}/minicpan/modules/02packages.details.txt.gz" },
   ]
@@ -30,6 +34,11 @@ my ($opt, $usage) = describe_options(
 
 die "--message without --rebuild or --project is nonsensical"
   if $opt->message and not ($opt->rebuild or $opt->project);
+
+if ($opt->tmux && ! $ENV{TMUX}) {
+  exec {'tmux'} 'tmux', 'new-session', '-n', 'code-review', "$^X $0 " . shell_quote(@ARGV);
+  die "Tried to exec tmux but we're still here.  What?!\n";
+}
 
 my $JSON = JSON::MaybeXS->new->pretty->canonical;
 
