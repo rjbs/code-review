@@ -122,23 +122,45 @@ PROJECT: for my $name (@projects) {
   if (@notes) {
     printf "    %s\n", $_ for @notes;
 
-    print "    [N]ext project, [R]eviewed this, [L]ook again, [Q]uit\n";
-    Term::ReadKey::ReadMode('cbreak');
-    my $action = '';
-    $action = lc Term::ReadKey::ReadKey(0) until $action eq 'n'
-                                              or $action eq 'r'
-                                              or $action eq 'l'
-                                              or $action eq 'q';
-    Term::ReadKey::ReadMode('normal');
+    INPUT: {
+      print "    [N]ext project, [R]eviewed this, [S]hell out, [L]ook again, [Q]uit\n";
+      Term::ReadKey::ReadMode('cbreak');
+      my $action = '';
+      $action = lc Term::ReadKey::ReadKey(0) until $action eq 'n'
+                                                or $action eq 'r'
+                                                or $action eq 's'
+                                                or $action eq 'l'
+                                                or $action eq 'q';
+      Term::ReadKey::ReadMode('normal');
 
-    redo PROJECT if $action eq 'l';
+      if ($action eq 's') {
+        my $directory = "$ENV{HOME}/code/hub/$name";
+        unless (-d $directory) {
+          print "Sorry, $directory doesn't exist.\n";
+        }
 
-    exit if $action eq 'q';
+        if ($ENV{TMUX}) {
+          system('tmux', 'new-window', '-c', $directory, '-n', $name);
+        } else {
+          print "Non-tmux shell-out not implemented.  Meh.\n";
+        }
 
-    if ($action eq 'r') {
-      $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
-                                               ->format_cldr('yyyy-MM-dd');
-      do_review($name)
+        redo INPUT;
+      }
+
+      if ($action eq 'l') {
+        redo PROJECT;
+      }
+
+      if ($action eq 'q') {
+        exit;
+      }
+
+      if ($action eq 'r') {
+        $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
+                                                 ->format_cldr('yyyy-MM-dd');
+        do_review($name);
+      }
     }
 
     last if $ENV{MAX} && ++$did >= $ENV{MAX};
