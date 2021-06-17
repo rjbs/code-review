@@ -114,7 +114,9 @@ if ($opt->project) {
 }
 
 my $did;
-PROJECT: for my $name (@projects) {
+PROJECT: for my $i (0 .. $#projects) {
+  my $name = $projects[$i];
+
   say "=== $name ==========";
   print "...";
   my @notes = notes_for($name);
@@ -123,12 +125,14 @@ PROJECT: for my $name (@projects) {
     printf "    %s\n", $_ for @notes;
 
     INPUT: {
-      print "    [N]ext project, [R]eviewed this, [S]hell out, [L]ook again, [Q]uit\n";
+      print "    [N]ext, [P]rev, [R]eviewed this, [S]hell out, [O]pen in browser, [L]ook again, [Q]uit\n";
       Term::ReadKey::ReadMode('cbreak');
       my $action = '';
       $action = lc Term::ReadKey::ReadKey(0) until $action eq 'n'
+                                                or $action eq 'p'
                                                 or $action eq 'r'
                                                 or $action eq 's'
+                                                or $action eq 'o'
                                                 or $action eq 'l'
                                                 or $action eq 'q';
       Term::ReadKey::ReadMode('normal');
@@ -148,12 +152,23 @@ PROJECT: for my $name (@projects) {
         redo INPUT;
       }
 
+      if ($action eq 'o') {
+        my $repo = qq{https://github.com/rjbs/$name/}; # Naive.
+        system("open", $repo);
+        redo INPUT;
+      }
+
       if ($action eq 'l') {
         redo PROJECT;
       }
 
       if ($action eq 'q') {
         exit;
+      }
+
+      if ($action eq 'p') {
+        $i--;
+        redo PROJECT;
       }
 
       if ($action eq 'r') {
