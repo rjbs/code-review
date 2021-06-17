@@ -14,11 +14,15 @@ use JSON::MaybeXS;
 use List::AllUtils qw(part uniq);
 use LWP::UserAgent;
 use MetaCPAN::Client;
-use Parse::CPAN::Packages::Fast;
 use String::ShellQuote;
 use Term::ReadKey ();
 use Time::Duration::Parse;
 use YAML::XS ();
+
+use CliM8::Util qw(activityloop matesay);
+use CliM8::HTTP;
+
+our $http = CliM8::HTTP->new;
 
 $|++;
 
@@ -51,27 +55,21 @@ my $mcpan = MetaCPAN::Client->new;
 
 my $saved = YAML::XS::LoadFile('code-review.yaml');
 
-my $p = Parse::CPAN::Packages::Fast->new($opt->local_cpan);
+my $res = $http->do_request(
+  uri      => 'https://fastapi.metacpan.org/release/latest_by_author/RJBS',
+  m8_label => "consulting MetaCPAN",
+)->get;
 
-my %is_tracked
-  = map {; $_ => scalar(($saved->{$_}{review} // '') ne 'never') }
-    keys %$saved;
+die "Can't get latest CPAN releases" unless $res->is_success;
+my $releases = $JSON->decode($res->decoded_content);
 
-my $dist = {};
+my %is_tracked = map {; $_ => scalar(($saved->{$_}{review} // '') ne 'never') }
+                 keys %$saved;
 
-my $ua    = LWP::UserAgent->new(keep_alive => 5);
+DIST: for my $d (map {; $_->{distribution} } $releases->{releases}->@*) {
+  next if $d eq 'perl';
 
-my $gh_ua = LWP::UserAgent->new(keep_alive => 5);
-   $gh_ua->default_header('Authorization' => "token $ENV{GITHUB_OAUTH_TOKEN}");
-
-DIST: for my $d (
-  sort { fc $a->dist cmp fc $b->dist } $p->latest_distributions
-) {
-  next unless $d->cpanid eq $opt->pauseid;
-  next if $d->dist eq 'perl';
-
-  $dist->{ $d->dist } = $d;
-  $is_tracked{ $d->dist } = 1 unless exists $is_tracked{ $d->dist };
+  $is_tracked{$d} = 1 unless exists $is_tracked{$d};
 }
 
 my @projects = grep {; $is_tracked{$_} } keys %is_tracked;
@@ -120,10 +118,6 @@ if ($opt->project) {
 
 use lib 'lib';
 require RJBS::CodeReview;
-use CliM8::Util qw(activityloop matesay);
-use CliM8::HTTP;
-
-our $http = CliM8::HTTP->new;
 
 my $mate = RJBS::CodeReview->new({
   http_agent => $http,
@@ -231,9 +225,11 @@ sub notes_for {
 sub rt_data {
   state %rt_data;
   unless (%rt_data) {
-    my $res = $ua->get(
-      'https://rt.cpan.org/Public/bugs-per-dist.json'
-    );
+    my $res = $http->do_request(
+      uri      => 'https://rt.cpan.org/Public/bugs-per-dist.json',
+      m8_label => "consulting rt.cpan.org",
+    )->get;
+
     die "Can't get RT bug count JSON" unless $res->is_success;
     my $bug_count = $JSON->decode($res->decoded_content);
     for my $name (@projects) {
@@ -296,9 +292,10 @@ sub cpan_notes {
   }
 
   {
-    my $res = $ua->get(
-      "http://cpants.cpanauthors.org/dist/$name.json",
-    );
+    my $res = $http->do_request(
+      uri       => "http://cpants.cpanauthors.org/dist/$name.json",
+      m8_label  => "checking CPANTS",
+    )->get;
 
     if ($res->is_success) {
       my $data = $JSON->decode($res->decoded_content);
@@ -322,13 +319,14 @@ sub gh_notes {
   my @notes;
 
   my $gh_user = $opt->githubid;
-  my $res = $gh_ua->get("https://api.github.com/repos/$gh_user/$gh_repo_name");
+  my $res = $http->do_request(
+    uri       => "https://api.github.com/repos/$gh_user/$gh_repo_name",
+    headers   => [ Authorization => "token $ENV{GITHUB_OAUTH_TOKEN}"],
+    m8_label  => "talking to GitHub",
+  )->get;
 
   unless ($res->is_success) {
-    $res = $gh_ua->get("https://api.github.com/repos/$gh_repo_name");
-    unless ($res->is_success) {
-      return ("Couldn't get repo data for $gh_user/$gh_repo_name from GitHub");
-    }
+    return ("Couldn't get repo data for $gh_user/$gh_repo_name from GitHub");
   }
 
   my $repo = $JSON->decode($res->decoded_content);

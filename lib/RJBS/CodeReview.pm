@@ -38,7 +38,7 @@ package RJBS::CodeReview::Activity::Boot {
       'review',
       {
         queue => RJBS::CodeReview::ReviewQueue->new({
-          items => [ map {; +{ name => $_ } } $self->projects->@* ],
+          items => [ map {; +{ id => $_ } } $self->projects->@* ],
           query => undef, # XXX This is obviously stupid. -- rjbs, 2021-06-17
         }),
       },
@@ -57,7 +57,7 @@ package RJBS::CodeReview::ReviewQueue {
   use experimental 'signatures';
 
   sub inflate ($self, $key) {
-    return { name => $key };
+    return { id => $key };
   }
 
   no Moose;
@@ -94,6 +94,25 @@ package RJBS::CodeReview::Activity::Review {
     colored_prompt
   );
 
+  around build_readline => sub ($orig, $self) {
+    my $term = $self->$orig;
+
+    my $completion_handler = $self->commando->_build_completion_function($self);
+
+    $term->Attribs->{attempted_completion_function} = $completion_handler;
+
+    $term->Attribs->{completer_word_break_characters} = qq[ \t\n];
+    $term->Attribs->{completion_entry_function} = sub { undef };
+
+    return $term;
+  };
+
+  sub _complete_from_array ($self, $array_ref) {
+    my @array = @$array_ref;
+    $self->readline->Attribs->{completion_entry_function} = sub { shift @array; };
+    return undef;
+  }
+
   sub queue_item_noun { 'project' }
 
   __PACKAGE__->add_queue_commands;
@@ -101,9 +120,9 @@ package RJBS::CodeReview::Activity::Review {
   has queue => (is => 'ro', required => 1);
 
   sub maybe_describe_item ($self, $item, $needle) {
-    return undef if defined $needle and index(fc $item->{name}, $needle) == -1;
+    return undef if defined $needle and index(fc $item->{id}, $needle) == -1;
 
-    return { brief => $item->{name} };
+    return { brief => $item->{id} };
   }
 
   sub assert_queue_not_empty ($self) {
@@ -113,22 +132,22 @@ package RJBS::CodeReview::Activity::Review {
     cmdnext;
   }
 
-  has last_interacted_project_name => (is => 'rw');
+  has last_interacted_project_id => (is => 'rw');
 
   sub _get_notes ($self, $project) {
     return $project->{notes} //= do {
-      [ main::notes_for($project->{name}) ];
+      [ main::notes_for($project->{id}) ];
     }
   }
 
   sub interact ($self) {
     my $project = $self->queue->get_current;
 
-    if (($self->last_interacted_project_name//'') ne $project->{name}) {
+    if (($self->last_interacted_project_id//'') ne $project->{id}) {
       say q{};
-      say "=== $project->{name} ==========";
+      say "=== $project->{id} ==========";
       printf "    %s\n", $_ for $self->_get_notes($project)->@*;
-      $self->last_interacted_project_name($project ? $project->{name} : undef);
+      $self->last_interacted_project_id($project ? $project->{id} : undef);
     }
 
     say q{};
@@ -137,7 +156,7 @@ package RJBS::CodeReview::Activity::Review {
     if ($project) {
       $prompt = colored_prompt(
         'prompt',
-        "$project->{name} > ",
+        "$project->{id} > ",
       );
     } else {
       $prompt = colored_prompt(['cyan'], 'no project > ');
@@ -161,7 +180,7 @@ package RJBS::CodeReview::Activity::Review {
   }
 
   sub _execute_autoreview ($self)  {
-    PROJECT: while ($self->queue->maybe_next) {
+    PROJECT: while (1) {
       my $project = $self->queue->get_current;
       my $notes = $self->_get_notes($project);
 
@@ -170,9 +189,11 @@ package RJBS::CodeReview::Activity::Review {
         cmdnext;
       }
 
-      my $name = $project->{name};
+      my $name = $project->{id};
       matesay "$name - No problems!  Great, moving on!";
       main::mark_reviewed($name, "reviewed $name, no problems");
+
+      last PROJECT unless $self->queue->maybe_next;
     }
 
     matesay("We got to the end of the queue!  Wow!");
@@ -188,7 +209,6 @@ package RJBS::CodeReview::Activity::Review {
     sub { CliM8::LoopControl::Empty->new->throw },
   );
 
-  # TODO: [S]hell out, [O]pen in browser, [L]ook again, [Q]uit
   command 'r.eviewed' => (
     help => {
       summary => 'mark this project as reviewed',
@@ -197,9 +217,15 @@ package RJBS::CodeReview::Activity::Review {
       $self->assert_queue_not_empty;
       my $project = $self->queue->get_current;
 
-      main::mark_reviewed($project->{name});
+      main::mark_reviewed($project->{id});
 
-      okaysay("Cool, $project->{name} has been reviewed!");
+      okaysay("Cool, $project->{id} has been reviewed!");
+
+      unless ($self->queue->maybe_next) {
+        matesay("Can't go to the next task, because that was the last one!");
+        cmdnext;
+      }
+
       $self->_execute_autoreview;
     }
   );
@@ -214,7 +240,7 @@ package RJBS::CodeReview::Activity::Review {
       my $project = $self->queue->get_current;
 
       say q{};
-      say "=== $project->{name} ==========";
+      say "=== $project->{id} ==========";
       printf "    %s\n", $_ for $self->_get_notes($project)->@*;
 
       cmdnext;
@@ -228,7 +254,33 @@ package RJBS::CodeReview::Activity::Review {
     sub ($self, $cmd, $rest) {
       $self->assert_queue_not_empty;
       $self->_execute_autoreview;
+    }
+  );
 
+  command 'na' => (
+    help => {
+      summary => "next item, then start an autoreview",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      unless ($self->queue->maybe_next) {
+        matesay("Can't go to the next task, because that was the last one!");
+        cmdnext;
+      }
+      $self->_execute_autoreview;
+    }
+  );
+
+  command 're.fresh' => (
+    help => {
+      summary => "look at the current project to re-check problems",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      $self->queue->invalidate_current;
+      $self->queue->get_current;
+      okaysay "Task refetched!";
+      cmdnext;
     }
   );
 
@@ -240,7 +292,7 @@ package RJBS::CodeReview::Activity::Review {
       $self->assert_queue_not_empty;
       my $project = $self->queue->get_current;
 
-      my $repo = qq{https://github.com/rjbs/$project->{name}/}; # Naive.
+      my $repo = qq{https://github.com/rjbs/$project->{id}/}; # Naive.
       system("open", $repo);
       cmdnext;
     },
@@ -253,7 +305,7 @@ package RJBS::CodeReview::Activity::Review {
     sub ($self, $cmd, $rest) {
       $self->assert_queue_not_empty;
       my $project = $self->queue->get_current;
-      my $name    = $project->{name};
+      my $name    = $project->{id};
 
       my $directory = "$ENV{HOME}/code/hub/$name";
 
