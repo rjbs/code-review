@@ -2,6 +2,11 @@
 use 5.18.0;
 use warnings;
 
+binmode *STDOUT, ':encoding(UTF-8)';
+binmode *STDERR, ':encoding(UTF-8)';
+
+use lib '/Users/rjbs/fm/code/LP-Tools/lib';
+
 use DateTime;
 use DateTime::Format::Strptime;
 use Getopt::Long::Descriptive;
@@ -113,6 +118,22 @@ if ($opt->project) {
   exit;
 }
 
+use lib 'lib';
+require RJBS::CodeReview;
+use CliM8::Util qw(activityloop matesay);
+use CliM8::HTTP;
+
+my $mate = RJBS::CodeReview->new({
+  http_agent => CliM8::HTTP->new,
+});
+
+activityloop($mate->activity(boot => { projects => \@projects }));
+
+say q{};
+matesay("Onya, buddy, you're all done!  Catch you later!");
+
+exit;
+
 my $did;
 PROJECT: for my $i (0 .. $#projects) {
   my $name = $projects[$i];
@@ -172,9 +193,7 @@ PROJECT: for my $i (0 .. $#projects) {
       }
 
       if ($action eq 'r') {
-        $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
-                                                 ->format_cldr('yyyy-MM-dd');
-        do_review($name);
+        mark_reviewed($name);
       }
     }
 
@@ -185,6 +204,14 @@ PROJECT: for my $i (0 .. $#projects) {
                                              ->format_cldr('yyyy-MM-dd');
     do_review($name, "reviewed $name, no problems");
   }
+}
+
+sub mark_reviewed {
+  my ($name) = @_;
+  $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
+                                           ->format_cldr('yyyy-MM-dd');
+
+  do_review($name);
 }
 
 sub do_review {
