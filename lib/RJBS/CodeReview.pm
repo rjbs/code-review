@@ -202,6 +202,31 @@ package RJBS::CodeReview::Activity::Review {
     }
   );
 
+  command 'a.uto.review' => (
+    help => {
+      summary => "move forward until a project with problems",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      PROJECT: while ($self->queue->maybe_next) {
+        my $project = $self->queue->get_current;
+        my $notes = $self->_get_notes($project);
+
+        if (@$notes) {
+          # We hit a project with problems.  Let's stop and work on it.
+          cmdnext;
+        }
+
+        my $name = $project->{name};
+        matesay "$name - No problems!  Great, moving on!";
+        main::mark_reviewed($name, "reviewed $name, no problems");
+      }
+
+      matesay("We got to the end of the queue!  Wow!");
+      cmdnext;
+    }
+  );
+
   command 'o.pen' => (
     help  => {
       summary => "open the project's GitHub page in a browser",

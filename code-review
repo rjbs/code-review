@@ -123,8 +123,10 @@ require RJBS::CodeReview;
 use CliM8::Util qw(activityloop matesay);
 use CliM8::HTTP;
 
+our $http = CliM8::HTTP->new;
+
 my $mate = RJBS::CodeReview->new({
-  http_agent => CliM8::HTTP->new,
+  http_agent => $http,
 });
 
 activityloop($mate->activity(boot => { projects => \@projects }));
@@ -134,84 +136,12 @@ matesay("Onya, buddy, you're all done!  Catch you later!");
 
 exit;
 
-my $did;
-PROJECT: for my $i (0 .. $#projects) {
-  my $name = $projects[$i];
-
-  say "=== $name ==========";
-  print "...";
-  my @notes = notes_for($name);
-  print "\r   \r";
-  if (@notes) {
-    printf "    %s\n", $_ for @notes;
-
-    INPUT: {
-      print "    [N]ext, [P]rev, [R]eviewed this, [S]hell out, [O]pen in browser, [L]ook again, [Q]uit\n";
-      Term::ReadKey::ReadMode('cbreak');
-      my $action = '';
-      $action = lc Term::ReadKey::ReadKey(0) until $action eq 'n'
-                                                or $action eq 'p'
-                                                or $action eq 'r'
-                                                or $action eq 's'
-                                                or $action eq 'o'
-                                                or $action eq 'l'
-                                                or $action eq 'q';
-      Term::ReadKey::ReadMode('normal');
-
-      if ($action eq 's') {
-        my $directory = "$ENV{HOME}/code/hub/$name";
-        unless (-d $directory) {
-          print "Sorry, $directory doesn't exist.\n";
-        }
-
-        if ($ENV{TMUX}) {
-          system('tmux', 'new-window', '-c', $directory, '-n', $name);
-        } else {
-          print "Non-tmux shell-out not implemented.  Meh.\n";
-        }
-
-        redo INPUT;
-      }
-
-      if ($action eq 'o') {
-        my $repo = qq{https://github.com/rjbs/$name/}; # Naive.
-        system("open", $repo);
-        redo INPUT;
-      }
-
-      if ($action eq 'l') {
-        redo PROJECT;
-      }
-
-      if ($action eq 'q') {
-        exit;
-      }
-
-      if ($action eq 'p') {
-        $i--;
-        redo PROJECT;
-      }
-
-      if ($action eq 'r') {
-        mark_reviewed($name);
-      }
-    }
-
-    last if $ENV{MAX} && ++$did >= $ENV{MAX};
-  } else {
-    print  "    Everything is okay!  Who'd have expected THAT?!\n";
-    $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
-                                             ->format_cldr('yyyy-MM-dd');
-    do_review($name, "reviewed $name, no problems");
-  }
-}
-
 sub mark_reviewed {
-  my ($name) = @_;
+  my ($name, $message) = @_;
   $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
                                            ->format_cldr('yyyy-MM-dd');
 
-  do_review($name);
+  do_review($name, $message);
 }
 
 sub do_review {
