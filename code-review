@@ -105,7 +105,7 @@ if ($opt->project) {
 }
 
 my $did;
-for my $name (@projects) {
+PROJECT: for my $name (@projects) {
   say "=== $name ==========";
   print "...";
   my @notes = notes_for($name);
@@ -113,13 +113,16 @@ for my $name (@projects) {
   if (@notes) {
     printf "    %s\n", $_ for @notes;
 
-    print "    [N]ext project, [R]eviewed this, [Q]uit\n";
+    print "    [N]ext project, [R]eviewed this, [L]ook again, [Q]uit\n";
     Term::ReadKey::ReadMode('cbreak');
     my $action = '';
     $action = lc Term::ReadKey::ReadKey(0) until $action eq 'n'
                                               or $action eq 'r'
+                                              or $action eq 'l'
                                               or $action eq 'q';
     Term::ReadKey::ReadMode('normal');
+
+    redo PROJECT if $action eq 'l';
 
     exit if $action eq 'q';
 
