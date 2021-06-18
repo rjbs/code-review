@@ -499,7 +499,7 @@ package RJBS::CodeReview::Activity::Review {
     if ($home eq 'CPAN') {
       return $self->_cpan_notes_for_project($name);
     } elsif ($home eq 'GitHub') {
-      return $self->_githubh_notes_for_project($name);
+      return $self->_github_notes_for_project($name);
     }
 
     return ("not hosted at CPAN, but at $home");
