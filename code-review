@@ -300,7 +300,7 @@ sub cpan_notes {
 
   {
     my $res = $http->do_request(
-      uri       => "http://cpants.cpanauthors.org/dist/$name.json",
+      uri       => "https://cpants.cpanauthors.org/dist/$name.json",
       m8_label  => "checking CPANTS",
     )->get;
 
