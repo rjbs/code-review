@@ -584,6 +584,11 @@ package RJBS::CodeReview::Activity::Review {
       $gh_repo_name = $1;
     }
 
+    my $author = $release->{metadata}{author};
+    if (grep {; /<rjbs\@cpan\.org>/ } @$author) {
+      push @notes, 'rjbs@cpan.org still used as author';
+    }
+
     push @notes, $self->_github_notes_for_project($gh_repo_name);
 
     my $rt_bugs = $self->_rt_data->{$name};
