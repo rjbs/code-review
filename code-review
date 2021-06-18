@@ -53,8 +53,6 @@ my $mate = RJBS::CodeReview->new({
   http_agent => $http,
 });
 
-my $saved = YAML::XS::LoadFile('code-review.yaml');
-
 my $res = $http->do_request(
   uri      => 'https://fastapi.metacpan.org/release/latest_by_author/RJBS',
   m8_label => "consulting MetaCPAN",
@@ -63,13 +61,17 @@ my $res = $http->do_request(
 die "Can't get latest CPAN releases" unless $res->is_success;
 my $releases = $mate->decode_json_res($res);
 
-my %is_tracked = map {; $_ => scalar(($saved->{$_}{review} // '') ne 'never') }
-                 keys %$saved;
+my %is_tracked = map {; $_ => scalar(($mate->_state->{$_}{review} // '') ne 'never') }
+                 keys $mate->_state->%*;
 
-DIST: for my $d (map {; $_->{distribution} } $releases->{releases}->@*) {
-  next if $d eq 'perl';
+my %dist;
 
-  $is_tracked{$d} = 1 unless exists $is_tracked{$d};
+DIST: for my $d ($releases->{releases}->@*) {
+  my $name = $d->{distribution};
+  next if $name eq 'perl';
+
+  $is_tracked{$name} = 1 unless exists $is_tracked{$name};
+  $dist{ $name } = $d;
 }
 
 my @projects = grep {; $is_tracked{$_} } keys %is_tracked;
@@ -81,22 +83,22 @@ my $strp = DateTime::Format::Strptime->new(
 );
 
 my ($undue, $due) = part {
-  return 0 unless my $rev = $saved->{$_}{'review-every'};
+  return 0 unless my $rev = $mate->_state->{$_}{'review-every'};
   die "can't parse duration $rev\n" unless my $dur = parse_duration($rev);
-  return 1 if ! $saved->{$_}{'last-review'};
-  my $last_done = $strp->parse_datetime($saved->{$_}{'last-review'})->epoch;
+  return 1 if ! $mate->_state->{$_}{'last-review'};
+  my $last_done = $strp->parse_datetime($mate->_state->{$_}{'last-review'})->epoch;
   return 1 if time - $last_done > $dur;
   return 0;
 } @projects;
 
 @projects = (@{ $due // [] }, sort {
-  ($saved->{$a}{'last-review'} // '0') cmp ($saved->{$b}{'last-review'} // 0)
+  ($mate->_state->{$a}{'last-review'} // '0') cmp ($mate->_state->{$b}{'last-review'} // 0)
   ||
   fc $a cmp fc $b
 } @$undue);
 
 if (@ARGV) {
-  my @missing = grep {; ! ($is_tracked{$_} or $saved->{$_}) } @ARGV;
+  my @missing = grep {; ! ($is_tracked{$_} or $mate->_state->{$_}) } @ARGV;
   die "these projects that you asked about are unknown: @missing\n"
     if @missing;
   @projects = @ARGV;
@@ -104,7 +106,7 @@ if (@ARGV) {
 
 if (my $project = $opt->project) {
   die "project $project is not tracked\n" unless $is_tracked{ $project };
-  $saved->{$project}{'last-review'}
+  $mate->_state->{$project}{'last-review'}
     = DateTime->now(time_zone => 'local')->format_cldr('yyyy-MM-dd');
 }
 
@@ -125,7 +127,7 @@ exit;
 
 sub mark_reviewed {
   my ($name, $message) = @_;
-  $saved->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
+  $mate->_state->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
                                            ->format_cldr('yyyy-MM-dd');
 
   do_review($name, $message);
@@ -135,15 +137,15 @@ sub do_review {
   my ($project, $message) = @_;
 
   my %dump = map {; $_ => {
-    ($saved->{$_}{home}   ? (home => $saved->{$_}{home})     : ()),
-    ($saved->{$_}{review} ? (review => $saved->{$_}{review}) : ()),
-    ($saved->{$_}{'last-review'}
-    ? ('last-review' => $saved->{$_}{'last-review'})
+    ($mate->_state->{$_}{home}   ? (home => $mate->_state->{$_}{home})     : ()),
+    ($mate->_state->{$_}{review} ? (review => $mate->_state->{$_}{review}) : ()),
+    ($mate->_state->{$_}{'last-review'}
+    ? ('last-review' => $mate->_state->{$_}{'last-review'})
     : ()),
-    ($saved->{$_}{'review-every'}
-    ? ('review-every' => $saved->{$_}{'review-every'})
+    ($mate->_state->{$_}{'review-every'}
+    ? ('review-every' => $mate->_state->{$_}{'review-every'})
     : ()),
-  } } uniq(@projects, keys %$saved);
+  } } uniq(@projects, keys $mate->_state->%*);
 
   YAML::XS::DumpFile('code-review.yaml', \%dump);
 
@@ -181,9 +183,9 @@ file](https://github.com/$gh_user/misc/blob/master/code-review) if you like.
 | --------------------------------------- | -------------
 END_HEADER
 
-  printf {$mkdn} "| %-40s| %s\n", $_, $saved->{$_}{'last-review'} // '-'
+  printf {$mkdn} "| %-40s| %s\n", $_, $mate->_state->{$_}{'last-review'} // '-'
     for sort {
-      ($saved->{$a}{'last-review'} // '0') cmp ($saved->{$b}{'last-review'} // 0)
+      ($mate->_state->{$a}{'last-review'} // '0') cmp ($mate->_state->{$b}{'last-review'} // 0)
       ||
       fc $a cmp fc $b } @projects;
 
@@ -204,7 +206,7 @@ END_HEADER
 sub notes_for {
   my ($name) = @_;
 
-  my $home = $saved->{$name}{home} // 'CPAN';
+  my $home = $mate->_state->{$name}{home} // 'CPAN';
 
   if ($home eq 'CPAN') {
     return cpan_notes($name);

@@ -25,6 +25,14 @@ sub decode_json_res ($self, $res) {
   return $self->json->decode( $res->decoded_content(charset => undef) );
 }
 
+has _state => (
+  is => 'ro',
+  lazy    => 1,
+  default => sub {
+    YAML::XS::LoadFile('code-review.yaml');
+  },
+);
+
 my %ACTIVITY = (
   boot    => 'RJBS::CodeReview::Activity::Boot',
   review  => 'RJBS::CodeReview::Activity::Review',
