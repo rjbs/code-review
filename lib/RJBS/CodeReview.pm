@@ -539,10 +539,14 @@ package RJBS::CodeReview::Activity::Review {
 
     my $dist = $main::dist{$name};
 
-    my $uri = $dist
-      ? sprintf('https://fastapi.metacpan.org/release/%s/%s',
-                $dist->@{ qw(author name) })
-      : sprintf('https://fastapi.metacpan.org/release/%s', $name);
+    my ($uri, $get_release);
+    if ($dist) {
+      $uri = sprintf 'https://fastapi.metacpan.org/release/%s/%s',
+        $dist->@{ qw(author name) };
+      $get_release = 1;
+    } else {
+      $uri = sprintf 'https://fastapi.metacpan.org/release/%s', $name;
+    }
 
     my $res = $self->app->http_agent->do_request(
       uri       => $uri,
@@ -552,7 +556,9 @@ package RJBS::CodeReview::Activity::Review {
     # TODO: distinguish 404 from other errors
     return ("couldn't find dist on metacpan") unless $res->is_success;
 
-    my $release = $self->app->decode_json_res($res)->{release};
+    my $release = $get_release
+                ? $self->app->decode_json_res($res)->{release}
+                : $self->app->decode_json_res($res);
 
     my @notes;
 
