@@ -29,7 +29,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Test-Routine                            | 2016-07-11
 | Dist-Zilla-Plugin-Git-Describe          | 2016-07-14
 | Email-ARF                               | 2016-07-16
-| Getopt-Long-Descriptive                 | 2016-07-16
 | Log-Dispatchouli                        | 2016-07-30
 | Email-Abstract                          | 2016-08-06
 | Acme-Lingua-EN-Inflect-Modern           | 2016-08-19
@@ -226,6 +225,7 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Log-Dispatch-UnixSyslog                 | 2020-11-02
 | Dist-Zilla                              | 2021-06-16
 | Algorithm-Diff                          | 2021-06-17
+| Getopt-Long-Descriptive                 | 2021-06-17
 | Pod-Elemental-PerlMunger                | 2021-06-17
 | Role-Identifiable                       | 2021-06-17
 | String-Errf                             | 2021-06-17
