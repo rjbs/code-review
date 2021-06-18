@@ -14,6 +14,8 @@ use List::AllUtils qw(uniq);
 
 sub name { 'code-review' }
 
+has http_agent => (is => 'ro', required => 1);
+
 has json => (
   is => 'ro',
   init_arg => undef,
@@ -247,7 +249,7 @@ package RJBS::CodeReview::Activity::Review {
 
   sub _get_notes ($self, $project) {
     return $project->{notes} //= do {
-      [ main::notes_for($project->{id}) ];
+      [ $self->_notes_for_project($project->{id}) ];
     }
   }
 
@@ -455,6 +457,157 @@ package RJBS::CodeReview::Activity::Review {
       cmdnext;
     },
   );
+
+  sub _notes_for_project {
+    my ($self, $name) = @_;
+
+    my $home = $self->app->_state->{$name}{home} // 'CPAN';
+
+    if ($home eq 'CPAN') {
+      return $self->_cpan_notes_for_project($name);
+    } elsif ($home eq 'GitHub') {
+      return $self->_githubh_notes_for_project($name);
+    }
+
+    return ("not hosted at CPAN, but at $home");
+  }
+
+  sub rt_data {
+    my ($self) = @_;
+
+    state %rt_data;
+    unless (%rt_data) {
+      my $res = $self->app->http_agent->do_request(
+        uri      => 'https://rt.cpan.org/Public/bugs-per-dist.json',
+        m8_label => "consulting rt.cpan.org",
+      )->get;
+
+      die "Can't get RT bug count JSON" unless $res->is_success;
+      my $bug_count = $self->app->decode_json_res($res);
+      for my $name (@main::projects) {
+        next unless $bug_count->{$name};
+        $rt_data{ $name } = {
+          open    => 0,
+          stalled => 0,
+        };
+
+        $rt_data{ $name }{open} = $bug_count->{$name}{counts}{active}
+                                - $bug_count->{$name}{counts}{stalled};
+
+        $rt_data{ $name }{stalled} = $bug_count->{$name}{counts}{stalled};
+      }
+    }
+
+    return \%rt_data;
+  }
+
+  sub _cpan_notes_for_project {
+    my ($self, $name) = @_;
+
+    my $dist = $main::dist{$name};
+
+    my $uri = $dist
+      ? sprintf('https://fastapi.metacpan.org/release/%s/%s',
+                $dist->@{ qw(author name) })
+      : sprintf('https://fastapi.metacpan.org/release/%s', $name);
+
+    my $res = $self->app->http_agent->do_request(
+      uri       => $uri,
+      m8_label  => "getting release from MetaCPAN",
+    )->get;
+
+    # TODO: distinguish 404 from other errors
+    return ("couldn't find dist on metacpan") unless $res->is_success;
+
+    my $release = $self->app->decode_json_res($res)->{release};
+
+    my @notes;
+
+    my $tracker = $release->{metadata}{resources}{bugtracker};
+    if (! $tracker->{web} or $tracker->{web} =~ /rt.cpan/) {
+      push @notes, "still using rt.cpan.org";
+    }
+
+    my $gh_repo_name = $name;
+    my $gh_user = $self->app->github_id;
+
+    my $repo = $release->{metadata}{resources}{repository}{url};
+    if (! $repo) {
+      push @notes, "no repository on file";
+    } elsif ($repo !~ /github.com/) {
+      push @notes, "not using GitHub for repo";
+    } elsif ($repo =~ /\Q$name/i && $repo !~ /\Q$name/) {
+      $gh_repo_name = lc $name;
+      push @notes, "GitHub repo is not capitalized correctly";
+    } elsif ($repo =~ m{github\.com/\Q$gh_user\E/(.+?)(?:\.git)}) {
+      $gh_repo_name = $1;
+    } elsif ($repo =~ m{github\.com/(.+?)(?:\.git)}) {
+      $gh_repo_name = $1;
+    }
+
+    push @notes, $self->_github_notes_for_project($gh_repo_name);
+
+    my $rt_bugs = $self->rt_data->{$name};
+    for (qw(open stalled)) {
+      push @notes, "rt.cpan.org $_ ticket count: $rt_bugs->{$_}"
+        if $rt_bugs->{$_};
+    }
+
+    unless (($release->{metadata}{generated_by} // '') =~ /Dist::Zilla/) {
+      push @notes, "dist not built with Dist::Zilla";
+    }
+
+    {
+      my $res = $self->app->http_agent->do_request(
+        uri       => "https://cpants.cpanauthors.org/dist/$name.json",
+        m8_label  => "checking CPANTS",
+      )->get;
+
+      if ($res->is_success) {
+        my $data = $self->app->decode_json_res($res);
+        for my $result (@{ $data->{kwalitee}[0] }) {
+          next if $result->{value};
+          next if $result->{is_experimental};
+          next if $result->{is_extra};
+          push @notes, "kwalitee test failed: $result->{name}";
+        }
+      } else {
+        push @notes, "could not get CPANTS results";
+      }
+    }
+
+    return @notes;
+  }
+
+  sub _github_notes_for_project {
+    my ($self, $gh_repo_name) = @_;
+
+    my @notes;
+
+    my $gh_user = $self->app->github_id;
+    my $res = $self->app->http_agent->do_request(
+      uri       => "https://api.github.com/repos/$gh_user/$gh_repo_name",
+      headers   => [ Authorization => "token $ENV{GITHUB_OAUTH_TOKEN}"],
+      m8_label  => "talking to GitHub",
+    )->get;
+
+    unless ($res->is_success) {
+      return ("Couldn't get repo data for $gh_user/$gh_repo_name from GitHub");
+    }
+
+    my $repo = $self->app->decode_json_res($res);
+
+    push @notes, "GitHub default branch is master"
+      if $repo->{default_branch} eq 'master';
+
+    push @notes, "GitHub issues are not enabled"
+      if ! $repo->{has_issues};
+
+    push @notes, "GitHub issue count: $repo->{open_issues_count}"
+      if $repo->{open_issues_count};
+
+    return @notes;
+  }
 
   no Moo;
 }
