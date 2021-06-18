@@ -61,7 +61,7 @@ my $res = $http->do_request(
 die "Can't get latest CPAN releases" unless $res->is_success;
 my $releases = $mate->decode_json_res($res);
 
-my %is_tracked = map {; $_ => scalar(($mate->_state->{$_}{review} // '') ne 'never') }
+my %is_tracked = map {; $_ => ($mate->_state->{$_}{review} // '') ne 'never' }
                  keys $mate->_state->%*;
 
 our %dist;
@@ -86,14 +86,19 @@ my ($undue, $due) = part {
   return 0 unless my $rev = $mate->_state->{$_}{'review-every'};
   die "can't parse duration $rev\n" unless my $dur = parse_duration($rev);
   return 1 if ! $mate->_state->{$_}{'last-review'};
-  my $last_done = $strp->parse_datetime($mate->_state->{$_}{'last-review'})->epoch;
+  my $last_done = $strp->parse_datetime($mate->_state->{$_}{'last-review'})
+                       ->epoch;
   return 1 if time - $last_done > $dur;
   return 0;
 } @projects;
 
 @projects = (@{ $due // [] }, sort {
-  ($mate->_state->{$a}{'last-review'} // '0') cmp ($mate->_state->{$b}{'last-review'} // 0)
+  ($mate->_state->{$a}{'last-review'} // 0)
+  cmp
+  ($mate->_state->{$b}{'last-review'} // 0)
+
   ||
+
   fc $a cmp fc $b
 } @$undue);
 
