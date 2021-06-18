@@ -10,7 +10,6 @@ use DateTime::Format::Strptime;
 use Getopt::Long::Descriptive;
 use List::AllUtils qw(part uniq);
 use LWP::UserAgent;
-use MetaCPAN::Client;
 use String::ShellQuote;
 use Term::ReadKey ();
 use Time::Duration::Parse;
@@ -246,13 +245,26 @@ sub rt_data {
 sub cpan_notes {
   my ($name) = @_;
 
-  state $mcpan = MetaCPAN::Client->new;
-  my $release = eval { $mcpan->release( $name ) };
-  return ("couldn't find dist on metacpan") unless $release;
+  my $dist = $dist{$name};
+
+  my $uri = $dist
+    ? sprintf('https://fastapi.metacpan.org/release/%s/%s',
+              $dist->@{ qw(author name) })
+    : sprintf('https://fastapi.metacpan.org/release/%s', $name);
+
+  my $res = $http->do_request(
+    uri       => $uri,
+    m8_label  => "getting release from MetaCPAN",
+  )->get;
+
+  # TODO: distinguish 404 from other errors
+  return ("couldn't find dist on metacpan") unless $res->is_success;
+
+  my $release = $mate->decode_json_res($res)->{release};
 
   my @notes;
 
-  my $tracker = $release->metadata->{resources}{bugtracker};
+  my $tracker = $release->{metadata}{resources}{bugtracker};
   if (! $tracker->{web} or $tracker->{web} =~ /rt.cpan/) {
     push @notes, "still using rt.cpan.org";
   }
@@ -260,7 +272,7 @@ sub cpan_notes {
   my $gh_repo_name = $name;
   my $gh_user = $opt->githubid;
 
-  my $repo = $release->metadata->{resources}{repository}{url};
+  my $repo = $release->{metadata}{resources}{repository}{url};
   if (! $repo) {
     push @notes, "no repository on file";
   } elsif ($repo !~ /github.com/) {
@@ -282,7 +294,7 @@ sub cpan_notes {
       if $rt_bugs->{$_};
   }
 
-  unless (($release->metadata->{generated_by} // '') =~ /Dist::Zilla/) {
+  unless (($release->{metadata}{generated_by} // '') =~ /Dist::Zilla/) {
     push @notes, "dist not built with Dist::Zilla";
   }
 
