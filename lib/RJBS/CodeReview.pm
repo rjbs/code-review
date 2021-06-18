@@ -258,7 +258,9 @@ package RJBS::CodeReview::Activity::Review {
 
     if (($self->last_interacted_project_id//'') ne $project->{id}) {
       say q{};
-      say "=== $project->{id} ==========";
+      say CliM8::Util::colored('dim', "═══╣"),
+          CliM8::Util::colored('ping', " $project->{id} "),
+          CliM8::Util::colored('dim', "╠════════════");
       printf "    %s\n", $_ for $self->_get_notes($project)->@*;
       $self->last_interacted_project_id($project ? $project->{id} : undef);
     }
