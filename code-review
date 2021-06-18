@@ -106,10 +106,10 @@ if (@ARGV) {
   @to_consider = @ARGV;
 }
 
-# if ($opt->rebuild) {
-#   do_review(undef, $opt->message);
-#   exit;
-# }
+if ($opt->rebuild) {
+  $mate->_commit_state;
+  exit;
+}
 
 activityloop($mate->activity(boot => { projects => \@to_consider }));
 
