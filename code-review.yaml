@@ -1,12 +1,12 @@
 ---
 Acme-Lingua-EN-Inflect-Modern:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 Acme-ProgressBar:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 Algorithm-Diff:
   last-review: 2021-06-17
 Amce-CNA:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 App-Addex:
   last-review: 2016-08-19
 App-Addex-AddressBook-Abook:
@@ -20,17 +20,17 @@ App-Addex-Plugin-Hiveminder:
 App-Addex-Plugin-Nobody:
   last-review: 2016-08-19
 App-Cmd:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 App-Cmd-Plugin-Prompt:
   last-review: 2018-03-10
 App-Cronjob:
   last-review: 2017-03-12
 App-Smarkmail:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 App-Uni:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 App-Whiff:
-  last-review: 2016-08-19
+  last-review: 2021-06-18
 Attribute-Handlers:
   review: never
 B-Lint:
@@ -133,7 +133,7 @@ Dist-Zilla:
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2017-03-12
 Dist-Zilla-Plugin-Git-Describe:
-  last-review: 2016-07-14
+  last-review: 2021-06-18
 Dist-Zilla-Plugin-PodPurler:
   last-review: 2016-09-19
 Dist-Zilla-Plugin-PodWeaver:
@@ -309,7 +309,7 @@ Log-Dispatch-TextTable:
 Log-Dispatch-UnixSyslog:
   last-review: 2020-11-02
 Log-Dispatchouli:
-  last-review: 2016-07-30
+  last-review: 2021-06-18
 MIME-BodyMunger:
   last-review: 2016-10-31
 MIME-Lite:
@@ -387,7 +387,7 @@ MooseX-ComposedBehavior:
 MooseX-OneArgNew:
   last-review: 2016-10-24
 MooseX-SetOnce:
-  last-review: 2016-07-11
+  last-review: 2021-06-18
 MooseX-Storage-Format-JSONpm:
   last-review: 2016-11-19
 MooseX-Types-Perl:
@@ -553,7 +553,7 @@ Test-Reporter-HTTPGateway:
   last-review: 2013-06-20
   review: never
 Test-Routine:
-  last-review: 2016-07-11
+  last-review: 2021-06-18
 Test-Simple:
   last-review: 2014-04-02
   review: never
@@ -563,7 +563,7 @@ Text-Soundex:
   last-review: 2013-06-20
   review: never
 Throwable:
-  last-review: 2015-11-22
+  last-review: 2021-06-18
 Throwable-X:
   last-review: 2018-03-10
 Time-Duration-Object:
