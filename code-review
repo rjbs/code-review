@@ -29,9 +29,8 @@ $|++;
 my @orig_argv = @ARGV;
 
 my ($opt, $usage) = describe_options(
-  '%c %o',
+  '%c %o [PROJECT...]',
   [ 'rebuild'      => "rebuild the YAML file that holds state" ],
-  [ 'project|p=s'  => "project to mark reviewed"               ],
   [ 'message|m=s'  => "commit message"                         ],
   [ 'pauseid=s'    => "your PAUSE id",  { default => uc $ENV{USER} } ],
   [ 'githubid=s'   => "your GitHub id", { default =>    $ENV{USER} } ],
@@ -98,28 +97,21 @@ my ($undue, $due) = part {
   fc $a cmp fc $b
 } @$undue);
 
+my @to_consider = @projects;
+
 if (@ARGV) {
   my @missing = grep {; ! ($is_tracked{$_} or $mate->_state->{$_}) } @ARGV;
   die "these projects that you asked about are unknown: @missing\n"
     if @missing;
-  @projects = @ARGV;
+  @to_consider = @ARGV;
 }
 
-if (my $project = $opt->project) {
-  die "project $project is not tracked\n" unless $is_tracked{ $project };
-  $mate->_state->{$project}{'last-review'}
-    = DateTime->now(time_zone => 'local')->format_cldr('yyyy-MM-dd');
-}
+# if ($opt->rebuild) {
+#   do_review(undef, $opt->message);
+#   exit;
+# }
 
-if ($opt->project) {
-  do_review($opt->project, $opt->message);
-  exit;
-} elsif ($opt->rebuild) {
-  do_review(undef, $opt->message);
-  exit;
-}
-
-activityloop($mate->activity(boot => { projects => \@projects }));
+activityloop($mate->activity(boot => { projects => \@to_consider }));
 
 say q{};
 matesay("Good job reviewing!");

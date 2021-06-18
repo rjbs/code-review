@@ -472,11 +472,11 @@ package RJBS::CodeReview::Activity::Review {
     return ("not hosted at CPAN, but at $home");
   }
 
-  sub rt_data {
-    my ($self) = @_;
-
-    state %rt_data;
-    unless (%rt_data) {
+  has _rt_data => (
+    is   => 'ro',
+    lazy => 1,
+    default => sub ($self, @) {
+      my %rt_data;
       my $res = $self->app->http_agent->do_request(
         uri      => 'https://rt.cpan.org/Public/bugs-per-dist.json',
         m8_label => "consulting rt.cpan.org",
@@ -496,10 +496,10 @@ package RJBS::CodeReview::Activity::Review {
 
         $rt_data{ $name }{stalled} = $bug_count->{$name}{counts}{stalled};
       }
-    }
 
-    return \%rt_data;
-  }
+      return \%rt_data;
+    }
+  );
 
   sub _cpan_notes_for_project {
     my ($self, $name) = @_;
@@ -547,7 +547,7 @@ package RJBS::CodeReview::Activity::Review {
 
     push @notes, $self->_github_notes_for_project($gh_repo_name);
 
-    my $rt_bugs = $self->rt_data->{$name};
+    my $rt_bugs = $self->_rt_data->{$name};
     for (qw(open stalled)) {
       push @notes, "rt.cpan.org $_ ticket count: $rt_bugs->{$_}"
         if $rt_bugs->{$_};
