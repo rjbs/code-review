@@ -336,7 +336,7 @@ Mail-Audit-Razor:
 Mail-Convert-Mbox-ToEml:
   review: never
 Mail-DeliveryStatus-BounceParser:
-  last-review: 2015-10-26
+  last-review: 2021-06-18
 Mail-LocalDelivery:
   last-review: 2016-10-31
 Mail-Postfix-Attr:
