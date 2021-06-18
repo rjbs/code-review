@@ -435,6 +435,37 @@ package RJBS::CodeReview::Activity::Review {
     },
   );
 
+  command 'm.eta.data' => (
+    help    => {
+      summary => "open MetaCPAN release data",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      my $name = $self->queue->get_current->{id};
+
+      my $dist = $main::dist{$name};
+
+      my $uri = $dist
+        ? sprintf('https://fastapi.metacpan.org/release/%s/%s',
+                  $dist->@{ qw(author name) })
+        : sprintf('https://fastapi.metacpan.org/release/%s', $name);
+
+      my $res = $self->app->http_agent->do_request(
+        uri       => $uri,
+        m8_label  => "getting release from MetaCPAN",
+      )->get;
+
+      # TODO: distinguish 404 from other errors
+      unless ($res->is_success) {
+        cmderr("Rats, I couldn't get the MetaCPAN resource.");
+      }
+
+      open my $less, "|-", "less", "-M";
+      my $select = SelectSaver->new($less);
+      say $res->decoded_content;
+    },
+  );
+
   command 's.hell' => (
     help  => {
       summary => "open a tmux window for this project",
