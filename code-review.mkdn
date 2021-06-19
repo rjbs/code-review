@@ -52,9 +52,7 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | DBIx-Locker                             | 2016-08-19
 | DNS-Oterica                             | 2016-08-19
 | Pod-CYOA                                | 2016-08-19
-| Pod-Weaver                              | 2016-09-18
 | CPAN-Uploader                           | 2016-09-19
-| Dist-Zilla-Plugin-PodPurler             | 2016-09-19
 | Email-Valid                             | 2016-09-22
 | Email-Filter                            | 2016-10-09
 | Mixin-Linewise                          | 2016-10-09
@@ -65,7 +63,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Querylet                                | 2016-10-13
 | Rubric                                  | 2016-10-13
 | Config-MVP-Reader-INI                   | 2016-10-19
-| Dist-Zilla-Plugin-PodWeaver             | 2016-10-19
 | Number-Tolerant                         | 2016-10-19
 | Perl-PrereqScanner                      | 2016-10-19
 | Text-SlackEmoji                         | 2016-10-19
@@ -146,7 +143,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Test-Abortable                          | 2017-03-04
 | App-Cronjob                             | 2017-03-12
 | Chess-960                               | 2017-03-12
-| Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2017-03-12
 | Email-MIME-Attachment-Stripper          | 2017-03-12
 | WWW-AdventCalendar                      | 2017-07-30
 | Dist-Zilla-PluginBundle-RJBS            | 2017-08-02
@@ -191,7 +187,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Sub-Install                             | 2018-03-10
 | Sub-MicroSig                            | 2018-03-10
 | Sub-Pipeline                            | 2018-03-10
-| Task-BeLike-RJBS                        | 2018-03-10
 | Test-BinaryData                         | 2018-03-10
 | Test-MinimumVersion                     | 2018-03-10
 | Throwable-X                             | 2018-03-10
@@ -230,3 +225,8 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Sub-Exporter                            | 2021-06-18
 | Test-Routine                            | 2021-06-18
 | Throwable                               | 2021-06-18
+| Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2021-06-19
+| Dist-Zilla-Plugin-PodPurler             | 2021-06-19
+| Dist-Zilla-Plugin-PodWeaver             | 2021-06-19
+| Pod-Weaver                              | 2021-06-19
+| Task-BeLike-RJBS                        | 2021-06-19

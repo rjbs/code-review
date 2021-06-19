@@ -131,13 +131,13 @@ Dist-Zilla:
   last-review: 2021-06-16
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
-  last-review: 2017-03-12
+  last-review: 2021-06-19
 Dist-Zilla-Plugin-Git-Describe:
   last-review: 2021-06-18
 Dist-Zilla-Plugin-PodPurler:
-  last-review: 2016-09-19
+  last-review: 2021-06-19
 Dist-Zilla-Plugin-PodWeaver:
-  last-review: 2016-10-19
+  last-review: 2021-06-19
 Dist-Zilla-Plugin-TaskWeaver:
   last-review: 2018-03-10
 Dist-Zilla-PluginBundle-RJBS:
@@ -446,7 +446,7 @@ Pod-Elemental-Transformer-VimHTML:
 Pod-Eventual:
   last-review: 2016-10-09
 Pod-Weaver:
-  last-review: 2016-09-18
+  last-review: 2021-06-19
 Postfix-Parse-Mailq:
   last-review: 2018-03-10
 Process-Status:
@@ -519,7 +519,7 @@ Sub-MicroSig:
 Sub-Pipeline:
   last-review: 2018-03-10
 Task-BeLike-RJBS:
-  last-review: 2018-03-10
+  last-review: 2021-06-19
 Task-Deprecations5_12:
   last-review: 2013-06-20
   review: never
