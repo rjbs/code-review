@@ -46,6 +46,11 @@ sub _mark_reviewed {
   $self->_commit_state($name, $message);
 }
 
+# { sha => $SHA, reviewed => [ dist1, dist2, ... ] }
+has _my_last_commit => (
+  is => 'rw',
+);
+
 sub _commit_state {
   my ($self, $project, $message) = @_;
 
@@ -65,9 +70,6 @@ sub _commit_state {
   YAML::XS::DumpFile('code-review.yaml', \%dump);
 
   system(qw(git add code-review.yaml)) and die "git-add failed\n";
-  my $msg = $message
-          || ($project ? "did review of $project"
-                       : "rebuilt code-review state file");
 
   my $gh_user = $self->github_id;
   open my $mkdn, '>', 'code-review.mkdn' or die "can't open mkdn: $!";
@@ -115,7 +117,46 @@ END_HEADER
     return;
   }
 
-  system(qw(git commit -m), $msg)  and die "git-commit failed\n";
+  my $do_amend;
+  my $last = $self->_my_last_commit || { sha => '', dists => [] };
+
+  if ($last->{sha}) {
+    my $head_sha = `git rev-parse HEAD`;
+    chomp $head_sha;
+
+    if ($head_sha eq $last->{sha}) {
+      $do_amend = 1;
+    } else {
+      $last = { sha => '', dists => [] };
+    }
+  }
+
+  if ($project) {
+    push $last->{dists}->@*, $project;
+  }
+
+  my $now = DateTime->now(time_zone => 'local')->format_cldr('yyyy-MM-dd');
+
+  my $msg;
+  my @dists = $last->{dists}->@*;
+  if (@dists > 1) {
+    $msg = "performed code review ($now)\n\n";
+    $msg .= "* $_\n" for @dists;
+  } elsif (@dists == 1) {
+    $msg = "performed code review ($now, $dists[0])";
+  } else {
+    $msg = "rebuilt code-review state file";
+  }
+
+  system(qw(git commit), ($do_amend ? '--amend' : ()), '-m', $msg)
+    and die "git-commit failed\n";
+
+  my $sha = `git rev-parse HEAD`;
+  chomp $sha;
+  $last->{sha} = $sha;
+  $self->_my_last_commit($last);
+
+  return;
 }
 
 my %ACTIVITY = (
