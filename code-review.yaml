@@ -52,7 +52,7 @@ CGI-Form-Table:
   last-review: 2013-07-01
   review: never
 CPAN-Faker:
-  last-review: 2016-08-19
+  last-review: 2021-06-19
 CPAN-Mini:
   last-review: 2018-03-04
 CPAN-Uploader:
@@ -94,7 +94,7 @@ DBIx-Locker:
 DNS-Oterica:
   last-review: 2016-08-19
 Data-Bucketeer:
-  last-review: 2016-08-19
+  last-review: 2021-06-19
 Data-GUID:
   last-review: 2016-08-19
 Data-GUID-URLSafe:
