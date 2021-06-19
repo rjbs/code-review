@@ -324,7 +324,10 @@ package RJBS::CodeReview::Activity::Review {
     my $last_review = $self->app->_state->{$project->{id}}{'last-review'}
                    // 'never';
 
-    my $text = join qq{\n}, $self->_get_notes($project)->@*;
+    my @notes = $self->_get_notes($project)->@*;
+    my $text  = @notes
+              ? (join qq{\n}, @notes)
+              : "\N{SPARKLES}  Everything is fine!  \N{SPARKLES}";
 
     return card("\n$text\n", {
       top     => [ CliM8::Util::colored('header', $project->{id}) ],
@@ -346,7 +349,10 @@ package RJBS::CodeReview::Activity::Review {
 
     if ($self->_do_autoreview) {
       $self->_do_autoreview(0);
-      $self->_execute_autoreview({ stop_on_problems => 1 });
+      $self->_execute_autoreview({
+        stop_on_problems => 1,
+        quiet => 1,
+      });
     }
 
     my $prompt;
@@ -379,6 +385,8 @@ package RJBS::CodeReview::Activity::Review {
   sub _execute_autoreview ($self, $arg = {})  {
     PROJECT: while (1) {
       my $project = $self->queue->get_current;
+      say "Attempting autoreview of $project->{id}" unless $arg->{quiet};
+
       my $notes = $self->_get_notes($project);
 
       if (@$notes) {
@@ -387,7 +395,8 @@ package RJBS::CodeReview::Activity::Review {
           cmdnext;
         }
 
-        next PROJECT;
+        next PROJECT if $self->queue->maybe_next;
+        matesay("We got to the end of the queue!  Okay!");
       }
 
       my $name = $project->{id};
