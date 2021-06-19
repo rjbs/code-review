@@ -1,12 +1,12 @@
 ---
 Acme-Lingua-EN-Inflect-Modern:
-  last-review: 2021-06-18
+  last-review: 2021-06-19
 Acme-ProgressBar:
-  last-review: 2021-06-18
+  last-review: 2021-06-19
 Algorithm-Diff:
   last-review: 2021-06-17
 Amce-CNA:
-  last-review: 2021-06-18
+  last-review: 2021-06-19
 App-Addex:
   last-review: 2021-06-19
 App-Addex-AddressBook-Abook:
@@ -28,11 +28,11 @@ App-Cmd-Plugin-Prompt:
 App-Cronjob:
   last-review: 2017-03-12
 App-Smarkmail:
-  last-review: 2021-06-18
+  last-review: 2021-06-19
 App-Uni:
   last-review: 2021-06-18
 App-Whiff:
-  last-review: 2021-06-18
+  last-review: 2021-06-19
 Attribute-Handlers:
   review: never
 B-Lint:
@@ -309,7 +309,7 @@ Log-Dispatch-Array:
 Log-Dispatch-TextTable:
   last-review: 2016-10-31
 Log-Dispatch-UnixSyslog:
-  last-review: 2020-11-02
+  last-review: 2021-06-19
 Log-Dispatchouli:
   last-review: 2021-06-18
 MIME-BodyMunger:
