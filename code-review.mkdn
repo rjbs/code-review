@@ -25,10 +25,6 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | PyTAP                                   | 2016-05-14
 | Email-ARF                               | 2016-07-16
 | Email-Abstract                          | 2016-08-06
-| App-Addex-AddressBook-Apple             | 2016-08-19
-| App-Addex-AddressBook-AppleScript       | 2016-08-19
-| App-Addex-Plugin-Hiveminder             | 2016-08-19
-| App-Addex-Plugin-Nobody                 | 2016-08-19
 | Class-Accessor-Class                    | 2016-08-19
 | Color-Scheme                            | 2016-08-19
 | Config-INI                              | 2016-08-19
@@ -223,6 +219,8 @@ file](https://github.com/rjbs/misc/blob/master/code-review) if you like.
 | Throwable                               | 2021-06-18
 | App-Addex                               | 2021-06-19
 | App-Addex-AddressBook-Abook             | 2021-06-19
+| App-Addex-AddressBook-AppleScript       | 2021-06-19
+| App-Addex-Plugin-Nobody                 | 2021-06-19
 | CPAN-Faker                              | 2021-06-19
 | Data-Bucketeer                          | 2021-06-19
 | Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2021-06-19
