@@ -46,6 +46,32 @@ sub _mark_reviewed {
   $self->_commit_state($name, $message);
 }
 
+my sub card {
+  my ($text, $arg) = @_;
+
+  my @top_hunks = $arg->{top}->@*;
+  my @bot_hunks = $arg->{bottom}->@*;
+
+  state $top = CliM8::Util::colored('dim', "┌──┤");
+  state $bar = CliM8::Util::colored('dim', "│");
+  state $bot = CliM8::Util::colored('dim', "└──┤");
+
+  my $str = q{};
+
+  $str .= $top;
+  $str .= " $_ $bar" for @top_hunks;
+  $str .= "\n";
+
+  my @lines = split /\n/, $text, -1;
+  $str .= "$bar $_\n" for @lines;
+
+  $str .= $bot;
+  $str .= " $_ $bar" for @bot_hunks;
+  $str .= "\n";
+
+  return $str;
+}
+
 # { sha => $SHA, reviewed => [ dist1, dist2, ... ] }
 has _my_last_commit => (
   is => 'rw',
@@ -294,19 +320,27 @@ package RJBS::CodeReview::Activity::Review {
     }
   }
 
+  sub _project_card ($self, $project) {
+    my $last_review = $self->app->_state->{$project->{id}}{'last-review'}
+                   // 'never';
+
+    my $text = join qq{\n}, $self->_get_notes($project)->@*;
+
+    return card("\n$text\n", {
+      top     => [ CliM8::Util::colored('header', $project->{id}) ],
+      bottom  => [
+        "Last review: " .
+        # CliM8::Util::colored('header', $last_review)
+        CliM8::Util::colored('bold', $last_review)
+      ],
+    });
+  }
+
   sub interact ($self) {
     my $project = $self->queue->get_current;
 
     if (($self->last_interacted_project_id//'') ne $project->{id}) {
-      say q{};
-      say CliM8::Util::colored('dim', "═══╣"),
-          CliM8::Util::colored('ping', " $project->{id} "),
-          CliM8::Util::colored('dim', "╠════════════");
-
-      my $last_review = $self->app->_state->{$project->{id}}{'last-review'} // 'never';
-      print  "    Last review: $last_review\n\n";
-
-      printf "    %s\n", $_ for $self->_get_notes($project)->@*;
+      say $self->_project_card($project);
       $self->last_interacted_project_id($project ? $project->{id} : undef);
     }
 
@@ -314,8 +348,6 @@ package RJBS::CodeReview::Activity::Review {
       $self->_do_autoreview(0);
       $self->_execute_autoreview;
     }
-
-    say q{};
 
     my $prompt;
     if ($project) {
@@ -404,9 +436,7 @@ package RJBS::CodeReview::Activity::Review {
       $self->assert_queue_not_empty;
       my $project = $self->queue->get_current;
 
-      say q{};
-      say "=== $project->{id} ==========";
-      printf "    %s\n", $_ for $self->_get_notes($project)->@*;
+      say $self->_project_card($project);
 
       cmdnext;
     }
