@@ -346,7 +346,7 @@ package RJBS::CodeReview::Activity::Review {
 
     if ($self->_do_autoreview) {
       $self->_do_autoreview(0);
-      $self->_execute_autoreview;
+      $self->_execute_autoreview({ stop_on_problems => 1 });
     }
 
     my $prompt;
@@ -376,14 +376,18 @@ package RJBS::CodeReview::Activity::Review {
     return $self;
   }
 
-  sub _execute_autoreview ($self)  {
+  sub _execute_autoreview ($self, $arg = {})  {
     PROJECT: while (1) {
       my $project = $self->queue->get_current;
       my $notes = $self->_get_notes($project);
 
       if (@$notes) {
-        # We hit a project with problems.  Let's stop and work on it.
-        cmdnext;
+        if ($arg->{stop_on_problems}) {
+          # We hit a project with problems.  Let's stop and work on it.
+          cmdnext;
+        }
+
+        next PROJECT;
       }
 
       my $name = $project->{id};
@@ -423,7 +427,7 @@ package RJBS::CodeReview::Activity::Review {
         cmdnext;
       }
 
-      $self->_execute_autoreview;
+      $self->_execute_autoreview({ stop_on_problems => 1 });
     }
   );
 
@@ -448,7 +452,17 @@ package RJBS::CodeReview::Activity::Review {
     },
     sub ($self, $cmd, $rest) {
       $self->assert_queue_not_empty;
-      $self->_execute_autoreview;
+      $self->_execute_autoreview({ stop_on_problems => 1 });
+    }
+  );
+
+  command 'omnireview' => (
+    help => {
+      summary => "attempt to autoreview every single project",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      $self->_execute_autoreview({ stop_on_problems => 0 });
     }
   );
 
@@ -462,7 +476,7 @@ package RJBS::CodeReview::Activity::Review {
         matesay("Can't go to the next task, because that was the last one!");
         cmdnext;
       }
-      $self->_execute_autoreview;
+      $self->_execute_autoreview({ stop_on_problems => 1 });
     }
   );
 
