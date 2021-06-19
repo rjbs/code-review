@@ -302,6 +302,10 @@ package RJBS::CodeReview::Activity::Review {
       say CliM8::Util::colored('dim', "═══╣"),
           CliM8::Util::colored('ping', " $project->{id} "),
           CliM8::Util::colored('dim', "╠════════════");
+
+      my $last_review = $self->app->_state->{$project->{id}}{'last-review'} // 'never';
+      print  "    Last review: $last_review\n\n";
+
       printf "    %s\n", $_ for $self->_get_notes($project)->@*;
       $self->last_interacted_project_id($project ? $project->{id} : undef);
     }
