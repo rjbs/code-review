@@ -13,6 +13,7 @@ App-Addex-AddressBook-Abook:
   last-review: 2021-06-19
 App-Addex-AddressBook-Apple:
   last-review: 2016-08-19
+  review: never
 App-Addex-AddressBook-AppleScript:
   last-review: 2016-08-19
 App-Addex-Plugin-Hiveminder:
