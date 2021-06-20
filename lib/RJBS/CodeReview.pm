@@ -533,6 +533,21 @@ package RJBS::CodeReview::Activity::Review {
     },
   );
 
+  command 'c.pan' => (
+    help    => {
+      summary => "assume the project is a CPAN dist and open on MetaCPAN",
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      my $name = $self->queue->get_current->{id};
+
+      my $link = "https://metacpan.org/release/$name";
+      system("open", $link);
+      okaysay "Opened in your browser: $link";
+      cmdnext;
+    },
+  );
+
   command 'm.eta.data' => (
     help    => {
       summary => "open MetaCPAN release data",
