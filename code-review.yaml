@@ -70,7 +70,7 @@ Catalyst-View-Text-Template:
 Chess-960:
   last-review: 2017-03-12
 Class-Accessor-Class:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Class-DBI-MSSQL:
   last-review: 2013-06-20
   review: never
@@ -80,11 +80,11 @@ Class-DBI-Relationship-HasVariant:
 Color-Palette:
   last-review: 2021-06-18
 Color-Scheme:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Config-INI:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Config-INI-Reader-Ordered:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Config-MVP:
   last-review: 2016-11-19
 Config-MVP-Reader-INI:
@@ -147,9 +147,9 @@ Dist-Zilla-PluginBundle-RJBS:
 E-Mail-Acme:
   last-review: 2017-08-02
 Email-ARF:
-  last-review: 2016-07-16
+  last-review: 2021-06-20
 Email-Abstract:
-  last-review: 2016-08-06
+  last-review: 2021-06-20
 Email-Address:
   last-review: 2018-03-04
 Email-Date:
@@ -219,7 +219,7 @@ Email-Send-IO:
 Email-Sender:
   last-review: 2016-10-31
 Email-Sender-Transport-SQLite:
-  last-review: 2016-10-31
+  last-review: 2021-06-20
 Email-Simple:
   last-review: 2018-02-11
 Email-Simple-FromHandle:
@@ -471,8 +471,8 @@ RTF-VimColor:
 Religion-Bible-Reference:
   last-review: 2018-03-10
 Return-Value:
-  review: never
   last-review: 2018-03-10
+  review: never
 Role-HasMessage:
   last-review: 2018-03-10
 Role-HasPayload:
