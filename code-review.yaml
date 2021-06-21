@@ -90,7 +90,7 @@ Config-MVP:
 Config-MVP-Reader-INI:
   last-review: 2016-10-19
 Config-Singleton:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 DBIx-Locker:
   last-review: 2016-08-19
 DNS-Oterica:
@@ -98,20 +98,20 @@ DNS-Oterica:
 Data-Bucketeer:
   last-review: 2021-06-19
 Data-GUID:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-GUID-URLSafe:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-Hive:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-InputMonster:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-InputMonster-Util-Catalyst:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-Message:
   last-review: 2016-08-19
   review: never
 Data-OptList:
-  last-review: 2016-08-19
+  last-review: 2021-06-20
 Data-Rx:
   last-review: 2020-01-25
 Data-Rx-Type-MooseTC:
@@ -368,7 +368,7 @@ Mixin-ExtraFields-Param:
 Mixin-Historian:
   last-review: 2016-10-31
 Mixin-Linewise:
-  last-review: 2016-10-09
+  last-review: 2021-06-20
 Module-Faker:
   last-review: 2016-10-31
 Module-Install-AuthorTests:
@@ -457,7 +457,7 @@ PyTAP:
   home: GitHub
   last-review: 2016-05-14
 Querylet:
-  last-review: 2016-10-13
+  last-review: 2021-06-20
 Querylet-CGI:
   last-review: 2018-03-10
 Querylet-Output-Excel-OLE:
