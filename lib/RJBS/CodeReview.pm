@@ -104,7 +104,7 @@ sub _commit_state {
 This file is computer-generated for humans to read.  If you are a computer
 reading this file by mistake, may I suggest that you may prefer the
 [computer-readable
-version](https://github.com/$gh_user/misc/blob/master/code-review.yaml) instead.
+version](https://github.com/$gh_user/code-review/blob/main/code-review.yaml) instead.
 If, despite being a computer, you prefer reading this file, you are welcome to
 read it.  Be advised, though, that its format may change in the future.
 
@@ -120,7 +120,7 @@ items in this list from top to bottom.  Once I've worked on an item, it moves
 to the bottom of the list.
 
 You can read [the program that generates this
-file](https://github.com/$gh_user/misc/blob/master/code-review) if you like.
+file](https://github.com/$gh_user/code-review/blob/main/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
