@@ -21,7 +21,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
-| Software-License                        | 2015-11-19
 | PyTAP                                   | 2016-05-14
 | Data-Rx-Type-MooseTC                    | 2016-08-19
 | Data-Rx-Type-PCRE                       | 2016-08-19
@@ -176,7 +175,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Test-Deep-HashRec                       | 2020-01-25
 | HTTP-Throwable                          | 2020-01-26
 | Test-Fatal                              | 2020-01-26
-| Dist-Zilla                              | 2021-06-16
 | Algorithm-Diff                          | 2021-06-17
 | Getopt-Long-Descriptive                 | 2021-06-17
 | Pod-Elemental-PerlMunger                | 2021-06-17
@@ -227,3 +225,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Sender-Transport-SQLite           | 2021-06-20
 | Mixin-Linewise                          | 2021-06-20
 | Querylet                                | 2021-06-20
+| Dist-Zilla                              | 2021-06-25
+| Software-License                        | 2021-06-25
