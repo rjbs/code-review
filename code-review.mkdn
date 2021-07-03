@@ -22,10 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| Data-Rx-Type-MooseTC                    | 2016-08-19
-| Data-Rx-Type-PCRE                       | 2016-08-19
-| Data-Rx-TypeBundle-Perl                 | 2016-08-19
-| Data-TagHive                            | 2016-08-19
 | Date-Span                               | 2016-08-19
 | DBIx-Locker                             | 2016-08-19
 | DNS-Oterica                             | 2016-08-19
@@ -34,13 +30,10 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Valid                             | 2016-09-22
 | Email-Filter                            | 2016-10-09
 | Parse-GutenbergRoget                    | 2016-10-09
-| Pod-Eventual                            | 2016-10-09
 | Email-LocalDelivery                     | 2016-10-13
 | HTML-Widget-Factory                     | 2016-10-13
 | Rubric                                  | 2016-10-13
-| Config-MVP-Reader-INI                   | 2016-10-19
 | Number-Tolerant                         | 2016-10-19
-| Perl-PrereqScanner                      | 2016-10-19
 | Text-SlackEmoji                         | 2016-10-19
 | MooseX-OneArgNew                        | 2016-10-24
 | Email-Date                              | 2016-10-31
@@ -225,5 +218,12 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Sender-Transport-SQLite           | 2021-06-20
 | Mixin-Linewise                          | 2021-06-20
 | Querylet                                | 2021-06-20
-| Dist-Zilla                              | 2021-06-25
 | Software-License                        | 2021-06-25
+| Config-MVP-Reader-INI                   | 2021-07-03
+| Data-Rx-Type-MooseTC                    | 2021-07-03
+| Data-Rx-Type-PCRE                       | 2021-07-03
+| Data-Rx-TypeBundle-Perl                 | 2021-07-03
+| Data-TagHive                            | 2021-07-03
+| Dist-Zilla                              | 2021-07-03
+| Perl-PrereqScanner                      | 2021-07-03
+| Pod-Eventual                            | 2021-07-03
