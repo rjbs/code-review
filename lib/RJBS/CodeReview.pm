@@ -675,6 +675,14 @@ package RJBS::CodeReview::Activity::Review {
 
     my @notes;
 
+    unless ($release->{metadata}{x_rjbs_perl_window}) {
+      push @notes, "no perl-window defined";
+
+      if ($release->{metadata}{x_rjbs_perl_support}) {
+        $notes[-1] .= " (but perl-support was)";
+      }
+    }
+
     my $tracker = $release->{metadata}{resources}{bugtracker};
     if (! $tracker->{web} or $tracker->{web} =~ /rt.cpan/) {
       push @notes, "still using rt.cpan.org";
