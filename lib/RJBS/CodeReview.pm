@@ -624,7 +624,7 @@ package RJBS::CodeReview::Activity::Review {
     default => sub ($self, @) {
       my %rt_data;
       my $res = $self->app->http_agent->do_request(
-        uri      => 'https://rt.cpan.org/Public/bugs-per-dist.json',
+        uri      => 'https://rt.cpan.org/Public/bugs-per-dist.data-json',
         m8_label => "consulting rt.cpan.org",
       )->get;
 
