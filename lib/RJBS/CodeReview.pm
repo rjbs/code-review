@@ -39,11 +39,18 @@ has _state => (
 );
 
 sub _mark_reviewed {
-  my ($self, $name, $message) = @_;
+  my ($self, $name) = @_;
   $self->_state->{$name}{'last-review'} = DateTime->now(time_zone => 'local')
                                            ->format_cldr('yyyy-MM-dd');
 
-  $self->_commit_state($name, $message);
+  $self->_commit_state($name);
+}
+
+sub _never_review {
+  my ($self, $name) = @_;
+  $self->_state->{$name}{review} = 'never';
+
+  $self->_commit_state($name, "marked $name as never-review");
 }
 
 my sub card {
@@ -78,7 +85,7 @@ has _my_last_commit => (
 );
 
 sub _commit_state {
-  my ($self, $project, $message) = @_;
+  my ($self, $project, $message, $never_amend) = @_;
 
   my $state = $self->_state;
 
@@ -150,7 +157,7 @@ END_HEADER
     my $head_sha = `git rev-parse HEAD`;
     chomp $head_sha;
 
-    if ($head_sha eq $last->{sha}) {
+    if ($head_sha eq $last->{sha} && ! $never_amend) {
       $do_amend = 1;
     } else {
       $last = { sha => '', dists => [] };
@@ -173,6 +180,8 @@ END_HEADER
   } else {
     $msg = "rebuilt code-review state file";
   }
+
+  $msg = $message if $message;
 
   system(qw(git commit), ($do_amend ? '--amend' : ()), '-m', $msg)
     and die "git-commit failed\n";
@@ -430,6 +439,27 @@ package RJBS::CodeReview::Activity::Review {
       $self->app->_mark_reviewed($project->{id});
 
       okaysay("Cool, $project->{id} has been reviewed!");
+
+      unless ($self->queue->maybe_next) {
+        matesay("Can't go to the next task, because that was the last one!");
+        cmdnext;
+      }
+
+      $self->_execute_autoreview({ stop_on_problems => 1 });
+    }
+  );
+
+  command 'disown' => (
+    help => {
+      summary => 'mark this project as never to be reviewed',
+    },
+    sub ($self, $cmd, $rest) {
+      $self->assert_queue_not_empty;
+      my $project = $self->queue->get_current;
+
+      $self->app->_never_review($project->{id});
+
+      okaysay("Sorry, $project->{id}, we wash our hands of you!");
 
       unless ($self->queue->maybe_next) {
         matesay("Can't go to the next task, because that was the last one!");
