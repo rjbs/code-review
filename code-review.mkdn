@@ -22,7 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| CPAN-Uploader                           | 2016-09-19
 | Email-Valid                             | 2016-09-22
 | Email-Filter                            | 2016-10-09
 | Parse-GutenbergRoget                    | 2016-10-09
@@ -227,3 +226,4 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | DNS-Oterica                             | 2021-07-06
 | Pod-CYOA                                | 2021-07-06
 | Dist-Zilla                              | 2021-08-01
+| CPAN-Uploader                           | 2021-10-30
