@@ -32,7 +32,7 @@ App-Smarkmail:
 App-Uni:
   last-review: 2021-06-18
 App-Whiff:
-  last-review: 2021-06-19
+  last-review: 2021-10-30
 Attribute-Handlers:
   review: never
 B-Lint:
@@ -88,11 +88,11 @@ Config-INI-Reader-Ordered:
 Config-MVP:
   last-review: 2016-11-19
 Config-MVP-Reader-INI:
-  last-review: 2021-07-03
+  last-review: 2021-10-30
 Config-Singleton:
   last-review: 2021-06-20
 DBIx-Locker:
-  last-review: 2021-07-06
+  last-review: 2021-10-30
 DNS-Oterica:
   last-review: 2021-07-06
 Data-Bucketeer:
@@ -115,20 +115,20 @@ Data-OptList:
 Data-Rx:
   last-review: 2020-01-25
 Data-Rx-Type-MooseTC:
-  last-review: 2021-07-03
+  last-review: 2021-10-30
 Data-Rx-Type-PCRE:
   last-review: 2021-07-03
 Data-Rx-TypeBundle-Perl:
-  last-review: 2021-07-03
+  last-review: 2021-10-30
 Data-Section:
   last-review: 2016-11-19
 Data-TagHive:
-  last-review: 2021-07-03
+  last-review: 2021-10-30
 Data-UUID:
   last-review: 2015-08-01
   review: never
 Date-Span:
-  last-review: 2021-07-06
+  last-review: 2021-10-30
 Dist-Zilla:
   last-review: 2021-08-01
   review-every: 1w
@@ -430,7 +430,7 @@ Perl-Critic-Tics:
 Perl-PrereqScanner:
   last-review: 2021-07-03
 Pod-CYOA:
-  last-review: 2021-07-06
+  last-review: 2021-10-30
 Pod-Coverage-TrustPod:
   last-review: 2018-03-04
 Pod-Elemental:
@@ -446,7 +446,7 @@ Pod-Elemental-Transformer-SynHi:
 Pod-Elemental-Transformer-VimHTML:
   last-review: 2018-03-10
 Pod-Eventual:
-  last-review: 2021-07-03
+  last-review: 2021-10-30
 Pod-Weaver:
   last-review: 2021-06-19
 Postfix-Parse-Mailq:
@@ -498,7 +498,7 @@ String-Errf:
 String-Flogger:
   last-review: 2018-03-10
 String-Formatter:
-  last-review: 2021-06-17
+  last-review: 2021-10-30
 String-RewritePrefix:
   last-review: 2020-01-25
 String-TagString:
