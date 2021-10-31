@@ -26,7 +26,7 @@ App-Cmd:
 App-Cmd-Plugin-Prompt:
   last-review: 2018-03-10
 App-Cronjob:
-  last-review: 2017-03-12
+  last-review: 2021-10-30
 App-Smarkmail:
   last-review: 2021-06-19
 App-Uni:
@@ -56,7 +56,7 @@ CGI-Form-Table:
 CPAN-Faker:
   last-review: 2021-06-19
 CPAN-Mini:
-  last-review: 2018-03-04
+  last-review: 2021-10-30
 CPAN-Uploader:
   last-review: 2021-10-30
 Cache-Cache:
@@ -246,6 +246,7 @@ File-CheckTree:
   review: never
 File-LinkTree-Builder:
   last-review: 2016-10-31
+  review: never
 Games-Board:
   last-review: 2016-10-31
 Games-Bowling-Scorecard:
@@ -259,7 +260,7 @@ Games-Goban:
 Games-Nintendo-Mario:
   last-review: 2016-10-31
 Getopt-Long-Descriptive:
-  last-review: 2021-06-17
+  last-review: 2021-10-30
 Git-Fingerd:
   last-review: 2016-10-31
 Git-Megapull:

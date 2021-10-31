@@ -104,7 +104,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Perl-Critic-Tics                        | 2016-11-19
 | Email-MIME                              | 2017-03-04
 | Test-Abortable                          | 2017-03-04
-| App-Cronjob                             | 2017-03-12
 | Chess-960                               | 2017-03-12
 | Email-MIME-Attachment-Stripper          | 2017-03-12
 | WWW-AdventCalendar                      | 2017-07-30
@@ -112,7 +111,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | E-Mail-Acme                             | 2017-08-02
 | Email-MIME-ContentType                  | 2017-08-02
 | Email-Simple                            | 2018-02-11
-| CPAN-Mini                               | 2018-03-04
 | Email-Address                           | 2018-03-04
 | Pod-Coverage-TrustPod                   | 2018-03-04
 | App-Cmd-Plugin-Prompt                   | 2018-03-10
@@ -164,7 +162,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | HTTP-Throwable                          | 2020-01-26
 | Test-Fatal                              | 2020-01-26
 | Algorithm-Diff                          | 2021-06-17
-| Getopt-Long-Descriptive                 | 2021-06-17
 | Pod-Elemental-PerlMunger                | 2021-06-17
 | Role-Identifiable                       | 2021-06-17
 | String-Errf                             | 2021-06-17
@@ -216,14 +213,17 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Perl-PrereqScanner                      | 2021-07-03
 | DNS-Oterica                             | 2021-07-06
 | Dist-Zilla                              | 2021-08-01
+| App-Cronjob                             | 2021-10-30
 | App-Whiff                               | 2021-10-30
 | Config-MVP-Reader-INI                   | 2021-10-30
+| CPAN-Mini                               | 2021-10-30
 | CPAN-Uploader                           | 2021-10-30
 | Data-Rx-Type-MooseTC                    | 2021-10-30
 | Data-Rx-TypeBundle-Perl                 | 2021-10-30
 | Data-TagHive                            | 2021-10-30
 | Date-Span                               | 2021-10-30
 | DBIx-Locker                             | 2021-10-30
+| Getopt-Long-Descriptive                 | 2021-10-30
 | Pod-CYOA                                | 2021-10-30
 | Pod-Eventual                            | 2021-10-30
 | String-Formatter                        | 2021-10-30
