@@ -777,11 +777,14 @@ package RJBS::CodeReview::Activity::Review {
   sub _github_notes_for_project {
     my ($self, $gh_repo_name) = @_;
 
-    my @notes;
-
     my $gh_user = $self->app->github_id;
+
+    my $path = $gh_repo_name =~ m{/}
+             ? $gh_repo_name
+             : "$gh_user/$gh_repo_name";
+
     my $res = $self->app->http_agent->do_request(
-      uri       => "https://api.github.com/repos/$gh_user/$gh_repo_name",
+      uri       => "https://api.github.com/repos/$path",
       headers   => [ Authorization => "token $ENV{GITHUB_OAUTH_TOKEN}"],
       m8_label  => "talking to GitHub",
     )->get;
@@ -791,6 +794,8 @@ package RJBS::CodeReview::Activity::Review {
     }
 
     my $repo = $self->app->decode_json_res($res);
+
+    my @notes;
 
     push @notes, "GitHub default branch is master"
       if $repo->{default_branch} eq 'master';
