@@ -22,10 +22,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| Parse-GutenbergRoget                    | 2016-10-09
-| Email-LocalDelivery                     | 2016-10-13
 | HTML-Widget-Factory                     | 2016-10-13
-| Rubric                                  | 2016-10-13
 | Email-Date                              | 2016-10-31
 | Email-Date-Format                       | 2016-10-31
 | Email-MessageID                         | 2016-10-31
@@ -156,7 +153,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Test-Fatal                              | 2020-01-26
 | Algorithm-Diff                          | 2021-06-17
 | Pod-Elemental-PerlMunger                | 2021-06-17
-| Role-Identifiable                       | 2021-06-17
 | String-Errf                             | 2021-06-17
 | App-Cmd                                 | 2021-06-18
 | App-Uni                                 | 2021-06-18
@@ -226,3 +222,4 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-Formatter                        | 2022-05-29
 | Text-SlackEmoji                         | 2022-05-29
 | URI-cpan                                | 2022-05-29
+| Role-Identifiable                       | 2022-06-12
