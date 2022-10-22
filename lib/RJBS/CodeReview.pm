@@ -133,11 +133,19 @@ file](https://github.com/$gh_user/code-review/blob/main/code-review) if you like
 | --------------------------------------- | -------------
 END_HEADER
 
-  printf {$mkdn} "| %-40s| %s\n", $_, $state->{$_}{'last-review'} // '-'
-    for sort {
+  for my $project (
+    sort {
       ($state->{$a}{'last-review'} // '0') cmp ($state->{$b}{'last-review'} // 0)
       ||
-      fc $a cmp fc $b } @main::projects;
+      fc $a cmp fc $b
+    } @main::projects
+  ) {
+    next if ($state->{$project}{review} // '') eq 'never';
+
+    printf {$mkdn} "| %-40s| %s\n",
+      $project,
+      $state->{$project}{'last-review'} // '-';
+  }
 
   close $mkdn or die "error closing mkdn: $!";
 
