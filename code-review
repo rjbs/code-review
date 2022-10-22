@@ -43,8 +43,8 @@ my ($opt, $usage) = describe_options(
 die "--message without --rebuild or --project is nonsensical"
   if $opt->message and not ($opt->rebuild or $opt->project);
 
-if ($opt->tmux && ! $ENV{TMUX}) {
-  exec {'tmux'} 'tmux', 'new-session', '-n', 'code-review', "$^X $0 " . shell_quote(@ARGV);
+if ($opt->tmux && ! $ENV{TMUX} && ! $opt->rebuild) {
+  exec {'tmux'} 'tmux', 'new-session', '-n', 'code-review', "$^X $0 " . shell_quote(@orig_argv);
   die "Tried to exec tmux but we're still here.  What?!\n";
 }
 
