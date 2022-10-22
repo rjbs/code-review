@@ -22,8 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| HTML-Widget-Factory                     | 2016-10-13
-| Email-Date                              | 2016-10-31
 | Email-Sender                            | 2016-10-31
 | Email-Simple-Test-TraceHeaders          | 2016-10-31
 | Email-Thread                            | 2016-10-31
