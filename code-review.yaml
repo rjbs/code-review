@@ -219,7 +219,7 @@ Email-Send-IO:
   last-review: 2015-11-29
   review: never
 Email-Sender:
-  last-review: 2016-10-31
+  last-review: 2022-10-23
 Email-Sender-Transport-SQLite:
   last-review: 2021-06-20
 Email-Simple:
@@ -227,7 +227,7 @@ Email-Simple:
 Email-Simple-FromHandle:
   last-review: 2022-10-22
 Email-Simple-Test-TraceHeaders:
-  last-review: 2016-10-31
+  last-review: 2022-10-23
 Email-Store:
   review: never
 Email-Stuff:
@@ -236,13 +236,13 @@ Email-Stuff:
 Email-Stuffer:
   last-review: 2018-03-10
 Email-Thread:
-  last-review: 2016-10-31
+  last-review: 2022-10-23
 Email-Valid:
   last-review: 2022-05-29
 Exception-Reporter:
   last-review: 2022-10-22
 Exception-Reporter-Summarizer-Catalyst:
-  last-review: 2016-10-31
+  last-review: 2022-10-23
 File-CheckTree:
   last-review: 2013-06-20
   review: never
@@ -612,6 +612,6 @@ delicious-backup:
   last-review: 2013-07-05
   review: never
 fewer:
-  last-review: 2016-10-31
+  last-review: 2022-10-23
 if:
   review: never

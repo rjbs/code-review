@@ -22,11 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| Email-Sender                            | 2016-10-31
-| Email-Simple-Test-TraceHeaders          | 2016-10-31
-| Email-Thread                            | 2016-10-31
-| Exception-Reporter-Summarizer-Catalyst  | 2016-10-31
-| fewer                                   | 2016-10-31
 | Games-Board                             | 2016-10-31
 | Games-Bowling-Scorecard                 | 2016-10-31
 | Games-Crossword-Puzzle                  | 2016-10-31
@@ -221,3 +216,8 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-Formatter                        | 2022-10-22
 | Text-SlackEmoji                         | 2022-10-22
 | URI-cpan                                | 2022-10-22
+| Email-Sender                            | 2022-10-23
+| Email-Simple-Test-TraceHeaders          | 2022-10-23
+| Email-Thread                            | 2022-10-23
+| Exception-Reporter-Summarizer-Catalyst  | 2022-10-23
+| fewer                                   | 2022-10-23
