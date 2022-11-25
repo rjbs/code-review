@@ -22,8 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| Games-Board                             | 2016-10-31
-| Games-Bowling-Scorecard                 | 2016-10-31
 | Games-Crossword-Puzzle                  | 2016-10-31
 | Games-Dice                              | 2016-10-31
 | Games-Goban                             | 2016-10-31
@@ -182,7 +180,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Data-Rx-Type-PCRE                       | 2021-07-03
 | Perl-PrereqScanner                      | 2021-07-03
 | DNS-Oterica                             | 2021-07-06
-| Dist-Zilla                              | 2021-08-01
 | App-Cronjob                             | 2021-10-30
 | CPAN-Mini                               | 2021-10-30
 | CPAN-Uploader                           | 2021-10-30
@@ -221,3 +218,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Thread                            | 2022-10-23
 | Exception-Reporter-Summarizer-Catalyst  | 2022-10-23
 | fewer                                   | 2022-10-23
+| Dist-Zilla                              | 2022-11-25
+| Games-Board                             | 2022-11-25
+| Games-Bowling-Scorecard                 | 2022-11-25

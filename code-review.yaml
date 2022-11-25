@@ -130,7 +130,7 @@ Data-UUID:
 Date-Span:
   last-review: 2022-10-22
 Dist-Zilla:
-  last-review: 2021-08-01
+  last-review: 2022-11-25
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2021-06-19
@@ -250,9 +250,9 @@ File-LinkTree-Builder:
   last-review: 2016-10-31
   review: never
 Games-Board:
-  last-review: 2016-10-31
+  last-review: 2022-11-25
 Games-Bowling-Scorecard:
-  last-review: 2016-10-31
+  last-review: 2022-11-25
 Games-Crossword-Puzzle:
   last-review: 2016-10-31
 Games-Dice:
