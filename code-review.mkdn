@@ -22,12 +22,9 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | PyTAP                                   | 2016-05-14
-| Games-Dice                              | 2016-10-31
-| Games-Goban                             | 2016-10-31
 | Games-Nintendo-Mario                    | 2016-10-31
 | Git-Fingerd                             | 2016-10-31
 | Global-Context                          | 2016-10-31
-| HTML-Form-ForceValue                    | 2016-10-31
 | HTML-MasonX-Free                        | 2016-10-31
 | HTML-Widget-Plugin-Calendar             | 2016-10-31
 | HTML-Widget-Plugin-Combo                | 2016-10-31
@@ -51,7 +48,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Mixin-ExtraFields-Hive                  | 2016-10-31
 | Mixin-ExtraFields-Param                 | 2016-10-31
 | Mixin-Historian                         | 2016-10-31
-| Module-Faker                            | 2016-10-31
 | MooseX-ClassCompositor                  | 2016-10-31
 | MooseX-ComposedBehavior                 | 2016-10-31
 | Test-Deep                               | 2016-11-05
@@ -221,3 +217,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-Formatter                        | 2022-11-28
 | Text-SlackEmoji                         | 2022-11-28
 | URI-cpan                                | 2022-11-28
+| Games-Dice                              | 2022-11-30
+| Games-Goban                             | 2022-11-30
+| Module-Faker                            | 2022-11-30

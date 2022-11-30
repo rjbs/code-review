@@ -256,9 +256,9 @@ Games-Bowling-Scorecard:
 Games-Crossword-Puzzle:
   last-review: 2022-11-28
 Games-Dice:
-  last-review: 2016-10-31
+  last-review: 2022-11-30
 Games-Goban:
-  last-review: 2016-10-31
+  last-review: 2022-11-30
 Games-Nintendo-Mario:
   last-review: 2016-10-31
 Getopt-Long-Descriptive:
@@ -272,6 +272,7 @@ Global-Context:
   last-review: 2016-10-31
 HTML-Form-ForceValue:
   last-review: 2016-10-31
+  review: never
 HTML-FromText:
   last-review: 2013-07-03
   review: never
@@ -374,7 +375,7 @@ Mixin-Historian:
 Mixin-Linewise:
   last-review: 2021-06-20
 Module-Faker:
-  last-review: 2016-10-31
+  last-review: 2022-11-30
 Module-Install-AuthorTests:
   review: never
 Module-Install-ExtraTests:
