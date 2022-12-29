@@ -16,13 +16,13 @@ use Time::Duration::Parse;
 use YAML::XS ();
 
 use lib '/Users/rjbs/fm/code/LP-Tools/lib';
-use CliM8::Util qw(activityloop matesay);
-use CliM8::HTTP;
+use Yakker::Util qw(activityloop matesay);
+use Yakker::HTTP;
 
 use lib 'lib';
 require RJBS::CodeReview;
 
-our $http = CliM8::HTTP->new;
+our $http = Yakker::HTTP->new;
 
 $|++;
 

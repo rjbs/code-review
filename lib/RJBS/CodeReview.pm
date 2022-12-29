@@ -5,7 +5,7 @@ use warnings;
 use utf8;
 
 use Moo;
-with 'CliM8::App';
+with 'Yakker::App';
 
 use experimental 'signatures';
 
@@ -59,9 +59,9 @@ my sub card {
   my @top_hunks = $arg->{top}->@*;
   my @bot_hunks = $arg->{bottom}->@*;
 
-  state $top = CliM8::Util::colored('dim', "┌──┤");
-  state $bar = CliM8::Util::colored('dim', "│");
-  state $bot = CliM8::Util::colored('dim', "└──┤");
+  state $top = Yakker::Util::colored('dim', "┌──┤");
+  state $bar = Yakker::Util::colored('dim', "│");
+  state $bot = Yakker::Util::colored('dim', "└──┤");
 
   my $str = q{};
 
@@ -202,23 +202,18 @@ END_HEADER
   return;
 }
 
-my %ACTIVITY = (
-  boot    => 'RJBS::CodeReview::Activity::Boot',
-  review  => 'RJBS::CodeReview::Activity::Review',
-);
+sub activity_class ($self, $name) {
+  state %ACTIVITY = (
+    boot    => 'RJBS::CodeReview::Activity::Boot',
+    review  => 'RJBS::CodeReview::Activity::Review',
+  );
 
-sub activity ($self, $name, $arg = {}) {
-  die "unknown activity $name" unless my $class = $ACTIVITY{ $name };
-
-  return $class->new({
-    %$arg,
-    app => $self,
-  });
+  return $ACTIVITY{$name};
 }
 
 package RJBS::CodeReview::Activity::Boot {
   use Moo;
-  with 'CliM8::Activity';
+  with 'Yakker::Role::Activity';
 
   use experimental 'signatures';
 
@@ -236,7 +231,7 @@ package RJBS::CodeReview::Activity::Boot {
       },
     );
 
-    CliM8::LoopControl::Swap->new({ activity => $activity })->throw;
+    Yakker::LoopControl::Swap->new({ activity => $activity })->throw;
   }
 
   no Moo;
@@ -244,7 +239,7 @@ package RJBS::CodeReview::Activity::Boot {
 
 package RJBS::CodeReview::ReviewQueue {
   use Moo;
-  with 'CliM8::Role::Queue';
+  with 'Yakker::Role::Queue';
 
   use experimental 'signatures';
 
@@ -258,21 +253,20 @@ package RJBS::CodeReview::ReviewQueue {
 package RJBS::CodeReview::Activity::Review {
   use Moo;
   sub queue;
-  with 'CliM8::Activity',
-       'CliM8::Role::Readline',
-       'CliM8::Role::HasQueue';
+  with 'Yakker::Role::Activity::Commando',
+       'Yakker::Role::HasQueue';
 
   use experimental 'signatures';
 
-  use CliM8::Commando -setup => {
+  use Yakker::Commando -setup => {
     help_sections => [
       { key => '',          title => 'The Basics' },
     ]
   };
 
-  use CliM8::Commando::Completionist -all;
-  use CliM8::Debug;
-  use CliM8::Util qw(
+  use Yakker::Commando::Completionist -all;
+  use Yakker::Debug;
+  use Yakker::Util qw(
     cmderr
     cmdmissing
     cmdnext
@@ -285,25 +279,6 @@ package RJBS::CodeReview::Activity::Review {
     colored
     colored_prompt
   );
-
-  around build_readline => sub ($orig, $self) {
-    my $term = $self->$orig;
-
-    my $completion_handler = $self->commando->_build_completion_function($self);
-
-    $term->Attribs->{attempted_completion_function} = $completion_handler;
-
-    $term->Attribs->{completer_word_break_characters} = qq[ \t\n];
-    $term->Attribs->{completion_entry_function} = sub { undef };
-
-    return $term;
-  };
-
-  sub _complete_from_array ($self, $array_ref) {
-    my @array = @$array_ref;
-    $self->readline->Attribs->{completion_entry_function} = sub { shift @array; };
-    return undef;
-  }
 
   sub queue_item_noun { 'project' }
 
@@ -347,16 +322,26 @@ package RJBS::CodeReview::Activity::Review {
               : "\N{SPARKLES}  Everything is fine!  \N{SPARKLES}";
 
     return card("\n$text\n", {
-      top     => [ CliM8::Util::colored('header', $project->{id}) ],
+      top     => [ Yakker::Util::colored('header', $project->{id}) ],
       bottom  => [
         "Last review: " .
-        # CliM8::Util::colored('header', $last_review)
-        CliM8::Util::colored('bold', $last_review)
+        # Yakker::Util::colored('header', $last_review)
+        Yakker::Util::colored('bold', $last_review)
       ],
     });
   }
 
-  sub interact ($self) {
+  sub prompt_string ($self) {
+    my $project = $self->queue->get_current;
+
+    if ($project) {
+      return colored_prompt('prompt', "$project->{id} > ");
+    }
+
+    return colored_prompt(['cyan'], 'no project > ');
+  }
+
+  around interact => sub ($orig, $self) {
     my $project = $self->queue->get_current;
 
     if (($self->last_interacted_project_id//'') ne $project->{id}) {
@@ -372,32 +357,8 @@ package RJBS::CodeReview::Activity::Review {
       });
     }
 
-    my $prompt;
-    if ($project) {
-      $prompt = colored_prompt(
-        'prompt',
-        "$project->{id} > ",
-      );
-    } else {
-      $prompt = colored_prompt(['cyan'], 'no project > ');
-    }
-
-    my $input = $self->get_input($prompt);
-
-    cmdlast unless defined $input;
-    cmdnext unless length $input;
-
-    my ($cmd, $rest) = split /\s+/, $input, 2;
-    if (my $command = $self->commando->command_for($cmd)) {
-      my $code = $command->{code};
-      $self->$code($cmd, $rest);
-      cmdnext;
-    }
-
-    cmderr("I don't know what you wanted to do!");
-
-    return $self;
-  }
+    return $self->$orig;
+  };
 
   sub _execute_autoreview ($self, $arg = {})  {
     PROJECT: while (1) {
@@ -433,7 +394,7 @@ package RJBS::CodeReview::Activity::Review {
       summary => 'call it a day',
       text    => "Declare you're done and quit.",
     },
-    sub { CliM8::LoopControl::Empty->new->throw },
+    sub { Yakker::LoopControl::Empty->new->throw },
   );
 
   command 'r.eviewed' => (
