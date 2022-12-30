@@ -21,14 +21,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
-| Git-Fingerd                             | 2016-10-31
-| Global-Context                          | 2016-10-31
-| HTML-MasonX-Free                        | 2016-10-31
-| HTML-Widget-Plugin-Calendar             | 2016-10-31
-| HTML-Widget-Plugin-Combo                | 2016-10-31
-| HTML-Widget-Plugin-JS                   | 2016-10-31
-| HTML-Widget-Plugin-Struct               | 2016-10-31
-| IO-TieCombine                           | 2016-10-31
+| JSCalendar-Duration                     | -
 | List-MapList                            | 2016-10-31
 | Log-Dispatch-Array                      | 2016-10-31
 | Log-Dispatch-TextTable                  | 2016-10-31
@@ -220,3 +213,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Module-Faker                            | 2022-11-30
 | Games-Nintendo-Mario                    | 2022-12-09
 | PyTAP                                   | 2022-12-24
+| Git-Fingerd                             | 2022-12-29
+| Global-Context                          | 2022-12-29
+| HTML-MasonX-Free                        | 2022-12-29
