@@ -22,12 +22,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | JSCalendar-Duration                     | -
-| List-MapList                            | 2016-10-31
-| Log-Dispatch-TextTable                  | 2016-10-31
-| Macro-Micro                             | 2016-10-31
-| Mail-LocalDelivery                      | 2016-10-31
 | Mail-Postfix-Attr                       | 2016-10-31
-| Mail-SpamAssassin-SimpleClient          | 2016-10-31
 | Math-Calculator                         | 2016-10-31
 | Math-TotalBuilder                       | 2016-10-31
 | Math-VarRate                            | 2016-10-31
@@ -215,3 +210,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-Formatter                        | 2022-12-29
 | Text-SlackEmoji                         | 2022-12-29
 | URI-cpan                                | 2022-12-29
+| List-MapList                            | 2022-12-30
+| Log-Dispatch-TextTable                  | 2022-12-30
+| Macro-Micro                             | 2022-12-30

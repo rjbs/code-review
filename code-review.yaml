@@ -314,11 +314,11 @@ JSON-Typist:
 Kwiki-IRCMode:
   review: never
 List-MapList:
-  last-review: 2016-10-31
+  last-review: 2022-12-30
 Log-Dispatch-Array:
   last-review: 2022-12-29
 Log-Dispatch-TextTable:
-  last-review: 2016-10-31
+  last-review: 2022-12-30
 Log-Dispatch-UnixSyslog:
   last-review: 2021-06-19
 Log-Dispatchouli:
@@ -331,7 +331,7 @@ MIME-Lite:
 MRO-Magic:
   last-review: 2016-11-19
 Macro-Micro:
-  last-review: 2016-10-31
+  last-review: 2022-12-30
 Mail-Audit:
   last-review: 2014-06-30
   review: never
@@ -352,10 +352,12 @@ Mail-DeliveryStatus-BounceParser:
   last-review: 2021-06-18
 Mail-LocalDelivery:
   last-review: 2016-10-31
+  review: never
 Mail-Postfix-Attr:
   last-review: 2016-10-31
 Mail-SpamAssassin-SimpleClient:
   last-review: 2016-10-31
+  review: never
 MasonX-Resolver-WidgetFactory:
   last-review: 2016-10-31
   review: never
