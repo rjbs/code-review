@@ -37,8 +37,31 @@ my ($opt, $usage) = describe_options(
   [ 'tmux!'        => 'ensure running under tmux', { default => 1 } ],
   [ 'local-cpan=s' => "where's your local cpan?", { default =>
       "$ENV{HOME}/minicpan/modules/02packages.details.txt.gz" },
-  ]
+  ],
+
+  [],
+
+  [ 'rules=s'      => 'comma-separated set of skip/include names',
+                      { default => 'noaliens,noorphans' } ],
+
+  [],
+  [ \<<~'END' ],
+      --rules takes a comma-separated list of the following:
+
+      noaliens  - skip CPAN dists where you have no permissions
+      noorphans - skip CPAN dists where ADOPTME is first-come
+
+      Default value: noaliens,noorphans
+  END
 );
+
+my %rules;
+for my $rule (split /\s*,\s*/, $opt->rules) {
+  die "unknown rule in --rules: $rule\n"
+    unless $rule eq 'noaliens' or $rule eq 'noorphans';
+
+  $rules{$rule} = 1;
+}
 
 die "--message without --rebuild or --project is nonsensical"
   if $opt->message and not ($opt->rebuild or $opt->project);
@@ -111,6 +134,42 @@ if (@ARGV) {
   @to_consider = @ARGV;
 }
 
+if (!@ARGV && %rules) {
+  my $res = $http->do_request(
+    uri      => 'https://www.cpan.org/modules/06perms.txt',
+    m8_label => "consulting CPAN",
+  )->get;
+
+  die "Can't get latest CPAN 06perms" unless $res->is_success;
+  my @perms_lines = split /\n/, $res->decoded_content;
+
+  my %perm;
+  for my $line (@perms_lines) {
+    next unless $line =~ /,[a-z]\z/;
+    my ($pm, $owner, $type) = split /,/, $line;
+
+    $perm{$pm}{$owner} = $type;
+  }
+
+  my @keep;
+  PROJECT: for my $project (@to_consider) {
+    my $pm_name = $project =~ s/-/::/gr;
+    my $perms   = $perm{$pm_name};
+
+    if ($rules{noorphans}) {
+      next PROJECT if $perms && ($perms->{ADOPTME}//'') eq 'f';
+    }
+
+    if ($rules{noaliens}) {
+      next PROJECT if $perms && ! $perms->{ $opt->pauseid };
+    }
+
+    push @keep, $project;
+  }
+
+  @to_consider = @keep;
+}
+
 if ($opt->rebuild) {
   $mate->_commit_state;
   exit;
@@ -122,4 +181,3 @@ say q{};
 matesay("Good job reviewing!");
 
 exit;
-
