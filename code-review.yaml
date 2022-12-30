@@ -32,7 +32,7 @@ App-Smarkmail:
 App-Uni:
   last-review: 2021-06-18
 App-Whiff:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Attribute-Handlers:
   review: never
 B-Lint:
@@ -88,11 +88,11 @@ Config-INI-Reader-Ordered:
 Config-MVP:
   last-review: 2016-11-19
 Config-MVP-Reader-INI:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Config-Singleton:
   last-review: 2021-06-20
 DBIx-Locker:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 DNS-Oterica:
   last-review: 2021-07-06
 Data-Bucketeer:
@@ -115,20 +115,20 @@ Data-OptList:
 Data-Rx:
   last-review: 2020-01-25
 Data-Rx-Type-MooseTC:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Data-Rx-Type-PCRE:
   last-review: 2021-07-03
 Data-Rx-TypeBundle-Perl:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Data-Section:
   last-review: 2016-11-19
 Data-TagHive:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Data-UUID:
   last-review: 2015-08-01
   review: never
 Date-Span:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Dist-Zilla:
   last-review: 2022-11-25
   review-every: 1w
@@ -161,7 +161,7 @@ Email-Delete:
   last-review: 2015-11-29
   review: never
 Email-Filter:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Folder:
   last-review: 2015-11-09
   review: never
@@ -190,25 +190,25 @@ Email-MIME-Attachment-Stripper:
 Email-MIME-ContentType:
   last-review: 2017-08-02
 Email-MIME-Encodings:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MIME-Kit:
   last-review: 2018-03-10
 Email-MIME-Kit-Assembler-Markdown:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MIME-Kit-Assembler-TextifyHTML:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MIME-Kit-KitReader-SWAK:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MIME-Kit-Renderer-TT:
   last-review: 2022-10-22
 Email-MIME-Kit-Renderer-Text-Template:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MIME-Kit-Validator-Rx:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-MessageID:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Pipemailer:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Reply:
   last-review: 2015-11-29
   review: never
@@ -225,9 +225,9 @@ Email-Sender-Transport-SQLite:
 Email-Simple:
   last-review: 2018-02-11
 Email-Simple-FromHandle:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Simple-Test-TraceHeaders:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Store:
   review: never
 Email-Stuff:
@@ -236,13 +236,13 @@ Email-Stuff:
 Email-Stuffer:
   last-review: 2018-03-10
 Email-Thread:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Email-Valid:
   last-review: 2022-05-29
 Exception-Reporter:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Exception-Reporter-Summarizer-Catalyst:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 File-CheckTree:
   last-review: 2013-06-20
   review: never
@@ -250,17 +250,17 @@ File-LinkTree-Builder:
   last-review: 2016-10-31
   review: never
 Games-Board:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Games-Bowling-Scorecard:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Games-Crossword-Puzzle:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Games-Dice:
   last-review: 2022-11-30
 Games-Goban:
-  last-review: 2022-11-30
+  last-review: 2022-12-29
 Games-Nintendo-Mario:
-  last-review: 2022-12-09
+  last-review: 2022-12-29
 Getopt-Long-Descriptive:
   last-review: 2021-10-30
 Git-Fingerd:
@@ -316,7 +316,7 @@ Kwiki-IRCMode:
 List-MapList:
   last-review: 2016-10-31
 Log-Dispatch-Array:
-  last-review: 2016-10-31
+  last-review: 2022-12-29
 Log-Dispatch-TextTable:
   last-review: 2016-10-31
 Log-Dispatch-UnixSyslog:
@@ -358,6 +358,7 @@ Mail-SpamAssassin-SimpleClient:
   last-review: 2016-10-31
 MasonX-Resolver-WidgetFactory:
   last-review: 2016-10-31
+  review: never
 Math-Calculator:
   last-review: 2016-10-31
 Math-TotalBuilder:
@@ -381,7 +382,7 @@ Mixin-Historian:
 Mixin-Linewise:
   last-review: 2021-06-20
 Module-Faker:
-  last-review: 2022-11-30
+  last-review: 2022-12-29
 Module-Install-AuthorTests:
   review: never
 Module-Install-ExtraTests:
@@ -419,7 +420,7 @@ Net-SMTP-SSL:
 Number-Nary:
   last-review: 2016-11-19
 Number-Tolerant:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Object-Annotate:
   last-review: 2016-11-19
 Object-Capsule:
@@ -442,7 +443,7 @@ Perl-Critic-Tics:
 Perl-PrereqScanner:
   last-review: 2021-07-03
 Pod-CYOA:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Pod-Coverage-TrustPod:
   last-review: 2018-03-04
 Pod-Elemental:
@@ -458,7 +459,7 @@ Pod-Elemental-Transformer-SynHi:
 Pod-Elemental-Transformer-VimHTML:
   last-review: 2018-03-10
 Pod-Eventual:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Pod-Weaver:
   last-review: 2021-06-19
 Postfix-Parse-Mailq:
@@ -490,7 +491,7 @@ Role-HasMessage:
 Role-HasPayload:
   last-review: 2018-03-10
 Role-Identifiable:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Role-Subsystem:
   last-review: 2018-03-10
 Router-Dumb:
@@ -509,9 +510,9 @@ Sort-ByExample:
 String-Errf:
   last-review: 2021-06-17
 String-Flogger:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 String-Formatter:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 String-RewritePrefix:
   last-review: 2020-01-25
 String-TagString:
@@ -574,7 +575,7 @@ Test-Simple:
   last-review: 2014-04-02
   review: never
 Text-SlackEmoji:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Text-Soundex:
   last-review: 2013-06-20
   review: never
@@ -597,7 +598,7 @@ Tree-File:
 Try-Tiny:
   review: never
 URI-cpan:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 Version-Requirements:
   last-review: 2013-06-20
   review: never
@@ -619,6 +620,6 @@ delicious-backup:
   last-review: 2013-07-05
   review: never
 fewer:
-  last-review: 2022-11-28
+  last-review: 2022-12-29
 if:
   review: never
