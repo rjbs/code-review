@@ -12,11 +12,11 @@ App-Addex:
 App-Addex-AddressBook-Abook:
   last-review: 2021-06-19
 App-Addex-AddressBook-Apple:
-  last-review: 2016-08-19
+  last-review: 2022-12-31
 App-Addex-AddressBook-AppleScript:
   last-review: 2021-06-19
 App-Addex-Plugin-Hiveminder:
-  last-review: 2016-08-19
+  last-review: 2022-12-31
 App-Addex-Plugin-Nobody:
   last-review: 2021-06-19
 App-Cmd:
@@ -43,7 +43,7 @@ Bryar-DataSource-Multiplex:
 Bundle-Email:
   last-review: 2013-06-20
 CGI-Application-Server:
-  last-review: 2013-12-11
+  last-review: 2022-12-31
 CGI-Form-Table:
   last-review: 2013-07-01
 CPAN-Faker:
@@ -58,7 +58,7 @@ Cache-Cache:
 Carp:
   review: never
 Catalyst-View-Text-Template:
-  last-review: 2014-03-24
+  last-review: 2022-12-31
 Chess-960:
   last-review: 2017-03-12
 Class-Accessor-Class:
@@ -149,7 +149,7 @@ Email-Delete:
 Email-Filter:
   last-review: 2022-12-29
 Email-Folder:
-  last-review: 2015-11-09
+  last-review: 2022-12-31
 Email-Folder-IMAP:
   last-review: 2015-11-29
 Email-Folder-IMAPS:
@@ -218,7 +218,7 @@ Exception-Reporter:
 Exception-Reporter-Summarizer-Catalyst:
   last-review: 2022-12-30
 File-CheckTree:
-  last-review: 2013-06-20
+  last-review: 2022-12-31
 File-LinkTree-Builder:
   last-review: 2016-10-31
 Games-Board:
@@ -270,7 +270,8 @@ Image-MetaData-JPEG:
 JMAP-Tester:
   last-review: 2018-03-10
 JSCalendar-Duration: {}
-JSON-CPAN-Meta: {}
+JSON-CPAN-Meta:
+  last-review: 2022-12-31
 JSON-Typist:
   last-review: 2018-03-10
 Kwiki-IRCMode: {}
@@ -301,17 +302,18 @@ Mail-Audit-List:
 Mail-Audit-PGP:
   last-review: 2015-11-29
 Mail-Audit-Razor: {}
-Mail-Convert-Mbox-ToEml: {}
+Mail-Convert-Mbox-ToEml:
+  last-review: 2022-12-31
 Mail-DeliveryStatus-BounceParser:
   last-review: 2021-06-18
 Mail-LocalDelivery:
   last-review: 2016-10-31
 Mail-Postfix-Attr:
-  last-review: 2016-10-31
+  last-review: 2022-12-31
 Mail-SpamAssassin-SimpleClient:
   last-review: 2016-10-31
 MasonX-Resolver-WidgetFactory:
-  last-review: 2016-10-31
+  last-review: 2022-12-31
 Math-Calculator:
   last-review: 2016-10-31
 Math-TotalBuilder:
@@ -336,10 +338,11 @@ Module-Faker:
   last-review: 2022-12-30
 Module-Install-AuthorTests: {}
 Module-Install-ExtraTests: {}
-Module-Starter-Plugin-SimpleStore: {}
+Module-Starter-Plugin-SimpleStore:
+  last-review: 2022-12-31
 Module-Starter-Plugin-TT2: {}
 Moose-Autobox:
-  last-review: 2013-10-28
+  last-review: 2022-12-31
 MooseX-ClassCompositor:
   last-review: 2016-10-31
 MooseX-ComposedBehavior:
@@ -360,7 +363,7 @@ Net-Delicious: {}
 Net-Finger-Server:
   last-review: 2016-11-19
 Net-SMTP-SSL:
-  last-review: 2016-10-09
+  last-review: 2022-12-31
 Number-Nary:
   last-review: 2016-11-19
 Number-Tolerant:
@@ -479,7 +482,7 @@ Sub-Pipeline:
 Task-BeLike-RJBS:
   last-review: 2021-06-19
 Task-Deprecations5_12:
-  last-review: 2013-06-20
+  last-review: 2022-12-31
 Task-Email-PEP-All:
   last-review: 2013-06-20
 Task-Email-PEP-NoStore:
@@ -505,7 +508,7 @@ Test-Fatal:
 Test-MinimumVersion:
   last-review: 2018-03-10
 Test-Reporter-HTTPGateway:
-  last-review: 2013-06-20
+  last-review: 2022-12-31
 Test-Routine:
   last-review: 2021-06-18
 Test-Simple:
@@ -536,7 +539,7 @@ Try-Tiny:
 URI-cpan:
   last-review: 2022-12-30
 Version-Requirements:
-  last-review: 2013-06-20
+  last-review: 2022-12-31
 WWW-AdventCalendar:
   last-review: 2017-07-30
 WebService-RTMAgent:
