@@ -563,8 +563,8 @@ package RJBS::CodeReview::Activity::Review {
         : sprintf('https://fastapi.metacpan.org/release/%s', $name);
 
       my $res = $self->app->http_agent->do_request(
-        uri       => $uri,
-        m8_label  => "getting release from MetaCPAN",
+        uri => $uri,
+        yakker_label  => "getting release from MetaCPAN",
       )->get;
 
       # TODO: distinguish 404 from other errors
@@ -623,8 +623,8 @@ package RJBS::CodeReview::Activity::Review {
     default => sub ($self, @) {
       my %rt_data;
       my $res = $self->app->http_agent->do_request(
-        uri      => 'https://rt.cpan.org/Public/bugs-per-dist.json',
-        m8_label => "consulting rt.cpan.org",
+        uri => 'https://rt.cpan.org/Public/bugs-per-dist.json',
+        yakker_label => "consulting rt.cpan.org",
       )->get;
 
       die "Can't get RT bug count JSON" unless $res->is_success;
@@ -661,8 +661,8 @@ package RJBS::CodeReview::Activity::Review {
     }
 
     my $res = $self->app->http_agent->do_request(
-      uri       => $uri,
-      m8_label  => "getting release from MetaCPAN",
+      uri => $uri,
+      yakker_label  => "getting release from MetaCPAN",
     )->get;
 
     # TODO: distinguish 404 from other errors
@@ -723,8 +723,8 @@ package RJBS::CodeReview::Activity::Review {
 
     {
       my $res = $self->app->http_agent->do_request(
-        uri       => "https://cpants.cpanauthors.org/dist/$name.json",
-        m8_label  => "checking CPANTS",
+        uri => "https://cpants.cpanauthors.org/dist/$name.json",
+        yakker_label  => "checking CPANTS",
       )->get;
 
       if ($res->is_success) {
@@ -755,7 +755,7 @@ package RJBS::CodeReview::Activity::Review {
     my $res = $self->app->http_agent->do_request(
       uri       => "https://api.github.com/repos/$path",
       headers   => [ Authorization => "token $ENV{GITHUB_OAUTH_TOKEN}"],
-      m8_label  => "talking to GitHub",
+      yakker_label => "talking to GitHub",
     )->get;
 
     unless ($res->is_success) {

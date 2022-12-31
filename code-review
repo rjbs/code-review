@@ -78,7 +78,7 @@ my $mate = RJBS::CodeReview->new({
 
 my $res = $http->do_request(
   uri      => 'https://fastapi.metacpan.org/release/latest_by_author/RJBS',
-  m8_label => "consulting MetaCPAN",
+  yakker_label => "consulting MetaCPAN",
 )->get;
 
 die "Can't get latest CPAN releases" unless $res->is_success;
@@ -136,8 +136,8 @@ if (@ARGV) {
 
 if (!@ARGV && %rules) {
   my $res = $http->do_request(
-    uri      => 'https://www.cpan.org/modules/06perms.txt',
-    m8_label => "consulting CPAN",
+    uri => 'https://www.cpan.org/modules/06perms.txt',
+    yakker_label => "consulting CPAN",
   )->get;
 
   die "Can't get latest CPAN 06perms" unless $res->is_success;
