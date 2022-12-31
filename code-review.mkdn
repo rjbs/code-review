@@ -264,7 +264,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-Flogger                          | 2022-12-30
 | String-Formatter                        | 2022-12-30
 | Text-SlackEmoji                         | 2022-12-30
-| URI-cpan                                | 2022-12-30
 | App-Addex-AddressBook-Apple             | 2022-12-31
 | App-Addex-Plugin-Hiveminder             | 2022-12-31
 | Catalyst-View-Text-Template             | 2022-12-31
@@ -280,4 +279,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Net-SMTP-SSL                            | 2022-12-31
 | Task-Deprecations5_12                   | 2022-12-31
 | Test-Reporter-HTTPGateway               | 2022-12-31
+| URI-cpan                                | 2022-12-31
 | Version-Requirements                    | 2022-12-31
