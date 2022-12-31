@@ -28,7 +28,7 @@ App-Cronjob:
 App-Smarkmail:
   last-review: 2021-06-19
 App-Uni:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 App-Whiff:
   last-review: 2022-12-30
 Attribute-Handlers:
@@ -68,7 +68,7 @@ Class-DBI-MSSQL:
 Class-DBI-Relationship-HasVariant:
   last-review: 2013-06-20
 Color-Palette:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Color-Scheme:
   last-review: 2021-06-20
 Config-INI:
@@ -123,7 +123,7 @@ Dist-Zilla:
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2021-06-19
 Dist-Zilla-Plugin-Git-Describe:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Dist-Zilla-Plugin-PodPurler:
   last-review: 2021-06-19
 Dist-Zilla-Plugin-PodWeaver:
@@ -350,7 +350,7 @@ MooseX-ComposedBehavior:
 MooseX-OneArgNew:
   last-review: 2022-05-29
 MooseX-SetOnce:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 MooseX-Storage-Format-JSONpm:
   last-review: 2022-12-31
 MooseX-Types-Perl:
@@ -368,7 +368,7 @@ Net-SMTP-SSL:
 Number-Nary:
   last-review: 2022-12-31
 Number-Tolerant:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 Object-Annotate:
   last-review: 2016-11-19
 Object-Capsule:
@@ -390,7 +390,7 @@ Perl-Critic-Tics:
 Perl-PrereqScanner:
   last-review: 2021-07-03
 Pod-CYOA:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 Pod-Coverage-TrustPod:
   last-review: 2022-12-31
 Pod-Elemental:
@@ -406,7 +406,7 @@ Pod-Elemental-Transformer-SynHi:
 Pod-Elemental-Transformer-VimHTML:
   last-review: 2022-12-31
 Pod-Eventual:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 Pod-Weaver:
   last-review: 2021-06-19
 Postfix-Parse-Mailq:
@@ -427,7 +427,7 @@ Querylet-Output-Excel-XLS:
 Querylet-Output-Text:
   last-review: 2018-03-10
 RTF-VimColor:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Religion-Bible-Reference:
   last-review: 2018-03-10
 Return-Value:
@@ -437,7 +437,7 @@ Role-HasMessage:
 Role-HasPayload:
   last-review: 2022-12-31
 Role-Identifiable:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 Role-Subsystem:
   last-review: 2022-12-31
 Router-Dumb:
@@ -455,9 +455,9 @@ Sort-ByExample:
 String-Errf:
   last-review: 2022-12-31
 String-Flogger:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 String-Formatter:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 String-RewritePrefix:
   last-review: 2022-12-31
 String-TagString:
@@ -467,13 +467,13 @@ String-Truncate:
 Sub-Exporter:
   last-review: 2021-06-18
 Sub-Exporter-ForMethods:
-  last-review: 2018-03-10
+  last-review: 2022-12-31
 Sub-Exporter-GlobExporter:
-  last-review: 2018-03-10
+  last-review: 2022-12-31
 Sub-Exporter-Lexical:
   last-review: 2018-03-10
 Sub-Import:
-  last-review: 2018-03-10
+  last-review: 2022-12-31
 Sub-Install:
   last-review: 2022-12-31
 Sub-MicroSig:
@@ -516,7 +516,7 @@ Test-Simple:
   last-review: 2014-04-02
   review: never
 Text-SlackEmoji:
-  last-review: 2022-12-30
+  last-review: 2022-12-31
 Text-Soundex:
   last-review: 2013-06-20
   review: never
