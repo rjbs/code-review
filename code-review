@@ -15,14 +15,11 @@ use Term::ReadKey ();
 use Time::Duration::Parse;
 use YAML::XS ();
 
-use lib '/Users/rjbs/fm/code/LP-Tools/lib';
 use Yakker::Util qw(activityloop matesay);
 use Yakker::HTTP;
 
 use lib 'lib';
 require RJBS::CodeReview;
-
-our $http = Yakker::HTTP->new;
 
 $|++;
 
@@ -72,11 +69,11 @@ if ($opt->tmux && ! $ENV{TMUX} && ! $opt->rebuild) {
 }
 
 my $mate = RJBS::CodeReview->new({
-  http_agent => $http,
+  http_agent => Yakker::HTTP->new,
   github_id  => $opt->githubid,
 });
 
-my $res = $http->do_request(
+my $res = $mate->http_agent->do_request(
   uri      => 'https://fastapi.metacpan.org/release/latest_by_author/RJBS',
   yakker_label => "consulting MetaCPAN",
 )->get;
@@ -135,7 +132,7 @@ if (@ARGV) {
 }
 
 if (!@ARGV && %rules) {
-  my $res = $http->do_request(
+  my $res = $mate->http_agent->do_request(
     uri => 'https://www.cpan.org/modules/06perms.txt',
     yakker_label => "consulting CPAN",
   )->get;
