@@ -343,7 +343,7 @@ command 'm.eta.data' => (
       cmderr("Rats, I couldn't get the MetaCPAN resource.");
     }
 
-    open my $less, "|-", "less", "-M";
+    open my $less, "|-", "jq --color-output . | less -R";
     my $select = SelectSaver->new($less);
     say $res->decoded_content;
   },
