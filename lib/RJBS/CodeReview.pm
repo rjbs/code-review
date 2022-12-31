@@ -24,6 +24,11 @@ has json => (
   },
 );
 
+has dist => (
+  is => 'rw',
+  default => sub {  {}  },
+);
+
 sub decode_json_res ($self, $res) {
   return $self->json->decode( $res->decoded_content(charset => undef) );
 }
@@ -555,7 +560,7 @@ package RJBS::CodeReview::Activity::Review {
       $self->assert_queue_not_empty;
       my $name = $self->queue->get_current->{id};
 
-      my $dist = $main::dist{$name};
+      my $dist = $self->app->dist->{$name};
 
       my $uri = $dist
         ? sprintf('https://fastapi.metacpan.org/release/%s/%s',
@@ -649,7 +654,7 @@ package RJBS::CodeReview::Activity::Review {
   sub _cpan_notes_for_project {
     my ($self, $name) = @_;
 
-    my $dist = $main::dist{$name};
+    my $dist = $self->app->dist->{$name};
 
     my ($uri, $get_release);
     if ($dist) {

@@ -84,14 +84,14 @@ my $releases = $mate->decode_json_res($res);
 my %is_tracked = map {; $_ => ($mate->_state->{$_}{review} // '') ne 'never' }
                  keys $mate->_state->%*;
 
-our %dist;
+my $dist = $mate->dist;
 
 DIST: for my $d ($releases->{releases}->@*) {
   my $name = $d->{distribution};
   next if $name eq 'perl';
 
   $is_tracked{$name} = 1 unless exists $is_tracked{$name};
-  $dist{ $name } = $d;
+  $dist->{ $name } = $d;
 }
 
 our @projects = grep {; $is_tracked{$_} } keys %is_tracked;
