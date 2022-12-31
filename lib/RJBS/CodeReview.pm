@@ -52,7 +52,7 @@ sub decode_json_res ($self, $res) {
   return $self->json->decode( $res->decoded_content(charset => undef) );
 }
 
-has github_id => (is => 'ro');
+has [ qw( github_id pause_id ) ] => (is => 'ro');
 
 has _state => (
   is => 'ro',
