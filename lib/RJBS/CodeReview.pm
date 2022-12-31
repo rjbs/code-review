@@ -29,6 +29,22 @@ has dist => (
   default => sub {  {}  },
 );
 
+has projects => (
+  is => 'bare',
+  reader => '_projects',
+  writer => 'set_projects',
+);
+
+sub projects ($self) { $self->_projects->@* }
+
+has filtered_projects => (
+  is => 'bare',
+  reader => '_filtered_projects',
+  writer => 'set_filtered_projects',
+);
+
+sub filtered_projects ($self) { $self->_filtered_projects->@* }
+
 sub decode_json_res ($self, $res) {
   return $self->json->decode( $res->decoded_content(charset => undef) );
 }
@@ -103,7 +119,7 @@ sub _commit_state {
     ($state->{$_}{'review-every'}
     ? ('review-every' => $state->{$_}{'review-every'})
     : ()),
-  } } uniq(@main::projects, keys $state->%*);
+  } } uniq($self->projects, keys $state->%*);
 
   YAML::XS::DumpFile('code-review.yaml', \%dump);
 
@@ -143,7 +159,7 @@ END_HEADER
       ($state->{$a}{'last-review'} // '0') cmp ($state->{$b}{'last-review'} // 0)
       ||
       fc $a cmp fc $b
-    } @main::projects
+    } $self->projects
   ) {
     next if ($state->{$project}{review} // '') eq 'never';
 
@@ -222,15 +238,13 @@ package RJBS::CodeReview::Activity::Boot {
 
   use experimental 'signatures';
 
-  has projects => (is => 'ro');
-
   sub interact ($self) {
     my $activity = $self->app->activity(
       'review',
       {
         begin_with_autoreview => 1,
         queue => RJBS::CodeReview::ReviewQueue->new({
-          items => [ map {; +{ id => $_ } } $self->projects->@* ],
+          items => [ map {; +{ id => $_ } } $self->app->filtered_projects ],
           query => undef, # XXX This is obviously stupid. -- rjbs, 2021-06-17
         }),
       },
@@ -634,7 +648,7 @@ package RJBS::CodeReview::Activity::Review {
 
       die "Can't get RT bug count JSON" unless $res->is_success;
       my $bug_count = $self->app->decode_json_res($res);
-      for my $name (@main::projects) {
+      for my $name ($self->app->projects) {
         next unless $bug_count->{$name};
         $rt_data{ $name } = {
           open    => 0,

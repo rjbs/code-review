@@ -172,7 +172,10 @@ if ($opt->rebuild) {
   exit;
 }
 
-activityloop($mate->activity(boot => { projects => \@to_consider }));
+$mate->set_projects(\@projects);
+$mate->set_filtered_projects(\@to_consider);
+
+activityloop($mate->activity(boot => {}));
 
 say q{};
 matesay("Good job reviewing!");
