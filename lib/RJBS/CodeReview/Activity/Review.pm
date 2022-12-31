@@ -1,4 +1,5 @@
 package RJBS::CodeReview::Activity::Review;
+
 use v5.36.0;
 use utf8;
 
@@ -17,14 +18,8 @@ use Yakker::Commando -setup => {
 use Yakker::Commando::Completionist -all;
 use Yakker::Debug;
 use Yakker::Util qw(
-  cmderr
-  cmdmissing
-  cmdnext
-  cmdlast
-
-  matesay
-  errsay
-  okaysay
+  -cmdctl
+  -output
 
   colored
   colored_prompt
@@ -68,9 +63,9 @@ my sub card {
   my @top_hunks = $arg->{top}->@*;
   my @bot_hunks = $arg->{bottom}->@*;
 
-  state $top = Yakker::Util::colored('dim', "┌──┤");
-  state $bar = Yakker::Util::colored('dim', "│");
-  state $bot = Yakker::Util::colored('dim', "└──┤");
+  state $top = colored('dim', "┌──┤");
+  state $bar = colored('dim', "│");
+  state $bot = colored('dim', "└──┤");
 
   my $str = q{};
 
@@ -98,11 +93,11 @@ sub _project_card ($self, $project) {
             : "\N{SPARKLES}  Everything is fine!  \N{SPARKLES}";
 
   return card("\n$text\n", {
-    top     => [ Yakker::Util::colored('header', $project->{id}) ],
+    top     => [ colored('header', $project->{id}) ],
     bottom  => [
       "Last review: " .
-      # Yakker::Util::colored('header', $last_review)
-      Yakker::Util::colored('bold', $last_review)
+      # colored('header', $last_review)
+      colored('bold', $last_review)
     ],
   });
 }

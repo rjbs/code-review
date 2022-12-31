@@ -1,13 +1,10 @@
 package RJBS::CodeReview;
 
-use v5.30.0;
-use warnings;
+use v5.36.0;
 use utf8;
 
 use Moo;
 with 'Yakker::App';
-
-use experimental 'signatures';
 
 use JSON::MaybeXS ();
 use List::AllUtils qw(uniq);

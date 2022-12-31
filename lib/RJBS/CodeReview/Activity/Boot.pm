@@ -1,4 +1,5 @@
 package RJBS::CodeReview::Activity::Boot;
+
 use v5.36.0;
 use utf8;
 
