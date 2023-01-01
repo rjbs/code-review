@@ -79,7 +79,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Parse-IRCLog                            | 2016-11-19
 | Email-MIME                              | 2017-03-04
 | Email-MIME-Attachment-Stripper          | 2017-03-12
-| WWW-AdventCalendar                      | 2017-07-30
 | E-Mail-Acme                             | 2017-08-02
 | Email-MIME-ContentType                  | 2017-08-02
 | Email-Simple                            | 2018-02-11
@@ -104,11 +103,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | App-Cmd                                 | 2021-06-18
 | Log-Dispatchouli                        | 2021-06-18
 | Mail-DeliveryStatus-BounceParser        | 2021-06-18
-| Sub-Exporter                            | 2021-06-18
-| Test-Routine                            | 2021-06-18
-| Throwable                               | 2021-06-18
-| Acme-Lingua-EN-Inflect-Modern           | 2021-06-19
-| Acme-ProgressBar                        | 2021-06-19
 | Amce-CNA                                | 2021-06-19
 | App-Addex                               | 2021-06-19
 | App-Addex-AddressBook-Abook             | 2021-06-19
@@ -190,6 +184,8 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Log-Dispatch-TextTable                  | 2022-12-30
 | Macro-Micro                             | 2022-12-30
 | Module-Faker                            | 2022-12-30
+| Acme-Lingua-EN-Inflect-Modern           | 2022-12-31
+| Acme-ProgressBar                        | 2022-12-31
 | App-Addex-AddressBook-Apple             | 2022-12-31
 | App-Addex-Plugin-Hiveminder             | 2022-12-31
 | App-Cmd-Plugin-Prompt                   | 2022-12-31
@@ -262,6 +258,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | String-RewritePrefix                    | 2022-12-31
 | String-TagString                        | 2022-12-31
 | String-Truncate                         | 2022-12-31
+| Sub-Exporter                            | 2022-12-31
 | Sub-Exporter-ForMethods                 | 2022-12-31
 | Sub-Exporter-GlobExporter               | 2022-12-31
 | Sub-Import                              | 2022-12-31
@@ -273,11 +270,14 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Test-Fatal                              | 2022-12-31
 | Test-MinimumVersion                     | 2022-12-31
 | Test-Reporter-HTTPGateway               | 2022-12-31
+| Test-Routine                            | 2022-12-31
 | Text-SlackEmoji                         | 2022-12-31
+| Throwable                               | 2022-12-31
 | Throwable-X                             | 2022-12-31
 | Time-Duration-Object                    | 2022-12-31
 | Time-Piece-MSSQL                        | 2022-12-31
 | URI-cpan                                | 2022-12-31
 | Version-Requirements                    | 2022-12-31
 | WebService-RTMAgent                     | 2022-12-31
+| WWW-AdventCalendar                      | 2022-12-31
 | ZMachine                                | 2022-12-31

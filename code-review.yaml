@@ -1,8 +1,8 @@
 ---
 Acme-Lingua-EN-Inflect-Modern:
-  last-review: 2021-06-19
+  last-review: 2022-12-31
 Acme-ProgressBar:
-  last-review: 2021-06-19
+  last-review: 2022-12-31
 Algorithm-Diff:
   last-review: 2021-06-17
 Amce-CNA:
@@ -465,7 +465,7 @@ String-TagString:
 String-Truncate:
   last-review: 2022-12-31
 Sub-Exporter:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Sub-Exporter-ForMethods:
   last-review: 2022-12-31
 Sub-Exporter-GlobExporter:
@@ -511,7 +511,7 @@ Test-MinimumVersion:
 Test-Reporter-HTTPGateway:
   last-review: 2022-12-31
 Test-Routine:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Test-Simple:
   last-review: 2014-04-02
   review: never
@@ -521,7 +521,7 @@ Text-Soundex:
   last-review: 2013-06-20
   review: never
 Throwable:
-  last-review: 2021-06-18
+  last-review: 2022-12-31
 Throwable-X:
   last-review: 2022-12-31
 Time-Duration-Object:
@@ -542,7 +542,7 @@ URI-cpan:
 Version-Requirements:
   last-review: 2022-12-31
 WWW-AdventCalendar:
-  last-review: 2017-07-30
+  last-review: 2022-12-31
 WebService-RTMAgent:
   last-review: 2022-12-31
 ZMachine:
