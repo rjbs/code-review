@@ -42,7 +42,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | HTML-FromText                           | 2013-07-03
 | MIME-Lite                               | 2013-11-04
 | Mail-Audit                              | 2014-06-30
-| Data-UUID                               | 2015-08-01
 | Email-Send                              | 2015-08-13
 | Email-Stuff                             | 2015-10-19
 | Email-Delete                            | 2015-11-29
@@ -123,7 +122,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | CPAN-Mini                               | 2021-10-30
 | Email-Valid                             | 2022-05-29
 | Email-Sender                            | 2022-10-23
-| Dist-Zilla                              | 2022-11-25
 | Games-Dice                              | 2022-11-30
 | PyTAP                                   | 2022-12-24
 | Email-Filter                            | 2022-12-29
@@ -281,3 +279,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | WebService-RTMAgent                     | 2022-12-31
 | WWW-AdventCalendar                      | 2022-12-31
 | ZMachine                                | 2022-12-31
+| Data-UUID                               | 2023-01-02
+| Dist-Zilla                              | 2023-01-02
