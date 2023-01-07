@@ -269,7 +269,8 @@ Image-MetaData-JPEG:
   review: never
 JMAP-Tester:
   last-review: 2018-03-10
-JSCalendar-Duration: {}
+JSCalendar-Duration:
+  last-review: 2023-01-07
 JSON-CPAN-Meta:
   last-review: 2022-12-31
 JSON-Typist:
@@ -499,7 +500,7 @@ Test-Class:
   last-review: 2013-11-30
   review: never
 Test-Deep:
-  last-review: 2016-11-05
+  last-review: 2023-01-07
 Test-Deep-HashRec:
   last-review: 2022-12-31
 Test-FITesque:

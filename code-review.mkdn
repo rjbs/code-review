@@ -22,7 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | Email-Store                             | -
-| JSCalendar-Duration                     | -
 | Kwiki-IRCMode                           | -
 | Mail-Audit-Razor                        | -
 | Metabase                                | -
@@ -71,7 +70,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Mail-LocalDelivery                      | 2016-10-31
 | Mail-SpamAssassin-SimpleClient          | 2016-10-31
 | Math-TotalBuilder                       | 2016-10-31
-| Test-Deep                               | 2016-11-05
 | Object-Annotate                         | 2016-11-19
 | Object-Capsule                          | 2016-11-19
 | Package-Generator                       | 2016-11-19
@@ -281,3 +279,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | ZMachine                                | 2022-12-31
 | Data-UUID                               | 2023-01-02
 | Dist-Zilla                              | 2023-01-02
+| JSCalendar-Duration                     | 2023-01-07
+| Test-Deep                               | 2023-01-07
