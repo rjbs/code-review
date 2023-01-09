@@ -74,11 +74,8 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Object-Capsule                          | 2016-11-19
 | Package-Generator                       | 2016-11-19
 | Parse-IRCLog                            | 2016-11-19
-| Email-MIME                              | 2017-03-04
 | Email-MIME-Attachment-Stripper          | 2017-03-12
 | E-Mail-Acme                             | 2017-08-02
-| Email-MIME-ContentType                  | 2017-08-02
-| Email-Simple                            | 2018-02-11
 | Email-Address                           | 2018-03-04
 | Email-MIME-Kit                          | 2018-03-10
 | Email-Stuffer                           | 2018-03-10
@@ -281,3 +278,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Dist-Zilla                              | 2023-01-02
 | JSCalendar-Duration                     | 2023-01-07
 | Test-Deep                               | 2023-01-07
+| Email-MIME                              | 2023-01-08
+| Email-MIME-ContentType                  | 2023-01-08
+| Email-Simple                            | 2023-01-08

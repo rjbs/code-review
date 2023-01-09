@@ -163,11 +163,11 @@ Email-FolderType-Net:
 Email-LocalDelivery:
   last-review: 2016-10-13
 Email-MIME:
-  last-review: 2017-03-04
+  last-review: 2023-01-08
 Email-MIME-Attachment-Stripper:
   last-review: 2017-03-12
 Email-MIME-ContentType:
-  last-review: 2017-08-02
+  last-review: 2023-01-08
 Email-MIME-Encodings:
   last-review: 2022-12-31
 Email-MIME-Kit:
@@ -199,7 +199,7 @@ Email-Sender:
 Email-Sender-Transport-SQLite:
   last-review: 2022-12-31
 Email-Simple:
-  last-review: 2018-02-11
+  last-review: 2023-01-08
 Email-Simple-FromHandle:
   last-review: 2022-12-31
 Email-Simple-Test-TraceHeaders:
