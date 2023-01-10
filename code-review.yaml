@@ -133,13 +133,13 @@ Dist-Zilla-Plugin-TaskWeaver:
 Dist-Zilla-PluginBundle-RJBS:
   last-review: 2022-12-31
 E-Mail-Acme:
-  last-review: 2017-08-02
+  last-review: 2023-01-09
 Email-ARF:
   last-review: 2021-06-20
 Email-Abstract:
   last-review: 2021-06-20
 Email-Address:
-  last-review: 2018-03-04
+  last-review: 2023-01-09
 Email-Date:
   last-review: 2016-10-31
 Email-Date-Format:
@@ -171,7 +171,7 @@ Email-MIME-ContentType:
 Email-MIME-Encodings:
   last-review: 2022-12-31
 Email-MIME-Kit:
-  last-review: 2018-03-10
+  last-review: 2023-01-09
 Email-MIME-Kit-Assembler-Markdown:
   last-review: 2022-12-31
 Email-MIME-Kit-Assembler-TextifyHTML:
@@ -208,7 +208,7 @@ Email-Store: {}
 Email-Stuff:
   last-review: 2015-10-19
 Email-Stuffer:
-  last-review: 2018-03-10
+  last-review: 2023-01-09
 Email-Thread:
   last-review: 2022-12-31
 Email-Valid:

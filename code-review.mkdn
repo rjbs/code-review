@@ -75,10 +75,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Package-Generator                       | 2016-11-19
 | Parse-IRCLog                            | 2016-11-19
 | Email-MIME-Attachment-Stripper          | 2017-03-12
-| E-Mail-Acme                             | 2017-08-02
-| Email-Address                           | 2018-03-04
-| Email-MIME-Kit                          | 2018-03-10
-| Email-Stuffer                           | 2018-03-10
 | JMAP-Tester                             | 2018-03-10
 | Postfix-Parse-Mailq                     | 2018-03-10
 | Querylet-CGI                            | 2018-03-10
@@ -281,3 +277,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-MIME                              | 2023-01-08
 | Email-MIME-ContentType                  | 2023-01-08
 | Email-Simple                            | 2023-01-08
+| E-Mail-Acme                             | 2023-01-09
+| Email-Address                           | 2023-01-09
+| Email-MIME-Kit                          | 2023-01-09
+| Email-Stuffer                           | 2023-01-09
