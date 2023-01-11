@@ -85,7 +85,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Return-Value                            | 2018-03-10
 | Rubric-Entry-Formatter-KwikiFormatish   | 2018-03-10
 | Rubric-Entry-Formatter-Markdown         | 2018-03-10
-| Sub-Exporter-Lexical                    | 2018-03-10
 | Sub-MicroSig                            | 2018-03-10
 | Sub-Pipeline                            | 2018-03-10
 | Data-Rx                                 | 2020-01-25
@@ -281,3 +280,4 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Address                           | 2023-01-09
 | Email-MIME-Kit                          | 2023-01-09
 | Email-Stuffer                           | 2023-01-09
+| Sub-Exporter-Lexical                    | 2023-01-10
