@@ -75,7 +75,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Package-Generator                       | 2016-11-19
 | Parse-IRCLog                            | 2016-11-19
 | Email-MIME-Attachment-Stripper          | 2017-03-12
-| JMAP-Tester                             | 2018-03-10
 | Postfix-Parse-Mailq                     | 2018-03-10
 | Querylet-CGI                            | 2018-03-10
 | Querylet-Output-Excel-OLE               | 2018-03-10
@@ -96,10 +95,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | App-Addex-AddressBook-Abook             | 2021-06-19
 | App-Addex-AddressBook-AppleScript       | 2021-06-19
 | App-Addex-Plugin-Nobody                 | 2021-06-19
-| Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2021-06-19
 | Dist-Zilla-Plugin-PodPurler             | 2021-06-19
-| Dist-Zilla-Plugin-PodWeaver             | 2021-06-19
-| Pod-Weaver                              | 2021-06-19
 | Class-Accessor-Class                    | 2021-06-20
 | Config-Singleton                        | 2021-06-20
 | Data-InputMonster                       | 2021-06-20
@@ -281,3 +277,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-MIME-Kit                          | 2023-01-09
 | Email-Stuffer                           | 2023-01-09
 | Sub-Exporter-Lexical                    | 2023-01-10
+| Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2023-01-11
+| Dist-Zilla-Plugin-PodWeaver             | 2023-01-11
+| JMAP-Tester                             | 2023-01-11
+| Pod-Weaver                              | 2023-01-11

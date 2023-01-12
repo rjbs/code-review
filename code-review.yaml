@@ -121,13 +121,13 @@ Dist-Zilla:
   last-review: 2023-01-02
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
-  last-review: 2021-06-19
+  last-review: 2023-01-11
 Dist-Zilla-Plugin-Git-Describe:
   last-review: 2022-12-31
 Dist-Zilla-Plugin-PodPurler:
   last-review: 2021-06-19
 Dist-Zilla-Plugin-PodWeaver:
-  last-review: 2021-06-19
+  last-review: 2023-01-11
 Dist-Zilla-Plugin-TaskWeaver:
   last-review: 2022-12-31
 Dist-Zilla-PluginBundle-RJBS:
@@ -268,7 +268,7 @@ Image-MetaData-JPEG:
   last-review: 2016-10-09
   review: never
 JMAP-Tester:
-  last-review: 2018-03-10
+  last-review: 2023-01-11
 JSCalendar-Duration:
   last-review: 2023-01-07
 JSON-CPAN-Meta:
@@ -409,7 +409,7 @@ Pod-Elemental-Transformer-VimHTML:
 Pod-Eventual:
   last-review: 2022-12-31
 Pod-Weaver:
-  last-review: 2021-06-19
+  last-review: 2023-01-11
 Postfix-Parse-Mailq:
   last-review: 2018-03-10
 Process-Status:
