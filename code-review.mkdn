@@ -86,7 +86,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Rubric-Entry-Formatter-Markdown         | 2018-03-10
 | Sub-MicroSig                            | 2018-03-10
 | Sub-Pipeline                            | 2018-03-10
-| Data-Rx                                 | 2020-01-25
 | Algorithm-Diff                          | 2021-06-17
 | App-Cmd                                 | 2021-06-18
 | Log-Dispatchouli                        | 2021-06-18
@@ -220,7 +219,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | WWW-AdventCalendar                      | 2022-12-31
 | ZMachine                                | 2022-12-31
 | Data-UUID                               | 2023-01-02
-| Dist-Zilla                              | 2023-01-02
 | JSCalendar-Duration                     | 2023-01-07
 | Test-Deep                               | 2023-01-07
 | Email-MIME                              | 2023-01-08
@@ -281,3 +279,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Games-Bowling-Scorecard                 | 2023-01-13
 | Games-Crossword-Puzzle                  | 2023-01-13
 | Games-Nintendo-Mario                    | 2023-01-13
+| Data-Rx                                 | 2023-01-18
+| Dist-Zilla                              | 2023-01-18
