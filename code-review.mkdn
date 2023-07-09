@@ -29,6 +29,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Module-Install-AuthorTests              | -
 | Module-Install-ExtraTests               | -
 | Module-Starter-Plugin-TT2               | -
+| Number-Format                           | -
 | Tree-File                               | -
 | Bryar-Config-YAML                       | 2013-06-20
 | Bryar-DataSource-Multiplex              | 2013-06-20
@@ -97,8 +98,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Dist-Zilla-Plugin-PodPurler             | 2021-06-19
 | Class-Accessor-Class                    | 2021-06-20
 | Config-Singleton                        | 2021-06-20
-| Data-InputMonster                       | 2021-06-20
-| Data-InputMonster-Util-Catalyst         | 2021-06-20
 | Email-Abstract                          | 2021-06-20
 | Email-ARF                               | 2021-06-20
 | Querylet                                | 2021-06-20
@@ -151,10 +150,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Mixin-Historian                         | 2022-12-31
 | Mixin-Linewise                          | 2022-12-31
 | Module-Faker                            | 2022-12-31
-| Module-Starter-Plugin-SimpleStore       | 2022-12-31
 | Moose-Autobox                           | 2022-12-31
-| MooseX-ClassCompositor                  | 2022-12-31
-| MooseX-ComposedBehavior                 | 2022-12-31
 | MooseX-OneArgNew                        | 2022-12-31
 | MooseX-SetOnce                          | 2022-12-31
 | MooseX-Storage-Format-JSONpm            | 2022-12-31
@@ -281,3 +277,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Games-Nintendo-Mario                    | 2023-01-13
 | Data-Rx                                 | 2023-01-18
 | Dist-Zilla                              | 2023-01-18
+| MooseX-ClassCompositor                  | 2023-07-09
+| MooseX-ComposedBehavior                 | 2023-07-09

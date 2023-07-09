@@ -48,6 +48,8 @@ CGI-Form-Table:
   last-review: 2013-07-01
 CPAN-Faker:
   last-review: 2023-01-13
+CPAN-Meta-Requirements:
+  review: never
 CPAN-Mini:
   last-review: 2021-10-30
 CPAN-Uploader:
@@ -95,8 +97,10 @@ Data-Hive:
   last-review: 2022-12-31
 Data-InputMonster:
   last-review: 2021-06-20
+  review: never
 Data-InputMonster-Util-Catalyst:
   last-review: 2021-06-20
+  review: never
 Data-Message:
   last-review: 2016-08-19
 Data-OptList:
@@ -341,13 +345,14 @@ Module-Install-AuthorTests: {}
 Module-Install-ExtraTests: {}
 Module-Starter-Plugin-SimpleStore:
   last-review: 2022-12-31
+  review: never
 Module-Starter-Plugin-TT2: {}
 Moose-Autobox:
   last-review: 2022-12-31
 MooseX-ClassCompositor:
-  last-review: 2022-12-31
+  last-review: 2023-07-09
 MooseX-ComposedBehavior:
-  last-review: 2022-12-31
+  last-review: 2023-07-09
 MooseX-OneArgNew:
   last-review: 2022-12-31
 MooseX-SetOnce:
@@ -366,6 +371,7 @@ Net-Finger-Server:
   last-review: 2022-12-31
 Net-SMTP-SSL:
   last-review: 2022-12-31
+Number-Format: {}
 Number-Nary:
   last-review: 2022-12-31
 Number-Tolerant:
