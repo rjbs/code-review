@@ -20,7 +20,7 @@ App-Addex-Plugin-Hiveminder:
 App-Addex-Plugin-Nobody:
   last-review: 2021-06-19
 App-Cmd:
-  last-review: 2021-06-18
+  last-review: 2023-08-26
 App-Cmd-Plugin-Prompt:
   last-review: 2023-08-07
 App-Cronjob:
@@ -467,7 +467,8 @@ String-Formatter:
   last-review: 2023-08-07
 String-RewritePrefix:
   last-review: 2023-08-07
-String-Switches: {}
+String-Switches:
+  last-review: 2023-08-26
 String-TagString:
   last-review: 2023-08-07
 String-Truncate:

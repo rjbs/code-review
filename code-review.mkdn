@@ -30,7 +30,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Module-Install-ExtraTests               | -
 | Module-Starter-Plugin-TT2               | -
 | Number-Format                           | -
-| String-Switches                         | -
 | Tree-File                               | -
 | Bryar-Config-YAML                       | 2013-06-20
 | Bryar-DataSource-Multiplex              | 2013-06-20
@@ -89,7 +88,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Sub-MicroSig                            | 2018-03-10
 | Sub-Pipeline                            | 2018-03-10
 | Algorithm-Diff                          | 2021-06-17
-| App-Cmd                                 | 2021-06-18
 | Log-Dispatchouli                        | 2021-06-18
 | Mail-DeliveryStatus-BounceParser        | 2021-06-18
 | App-Addex                               | 2021-06-19
@@ -280,3 +278,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Time-Piece-MSSQL                        | 2023-08-07
 | WebService-RTMAgent                     | 2023-08-07
 | ZMachine                                | 2023-08-07
+| App-Cmd                                 | 2023-08-26
+| String-Switches                         | 2023-08-26
