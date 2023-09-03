@@ -393,27 +393,33 @@ has _rt_data => (
   lazy => 1,
   default => sub ($self, @) {
     my %rt_data;
-    my $res = $self->app->http_agent->do_request(
-      uri => 'https://rt.cpan.org/Public/bugs-per-dist.json',
-      yakker_label => "consulting rt.cpan.org",
-    )->get;
 
-    die "Can't get RT bug count JSON" unless $res->is_success;
-    my $bug_count = $self->app->decode_json_res($res);
-    for my $name ($self->app->projects) {
-      next unless $bug_count->{$name};
-      $rt_data{ $name } = {
-        open    => 0,
-        stalled => 0,
-      };
+    eval {
+      my $res = $self->app->http_agent->do_request(
+        uri => 'https://rt.cpan.org/Public/bugs-per-dist.json',
+        yakker_label => "consulting rt.cpan.org",
+      )->get;
 
-      $rt_data{ $name }{open} = $bug_count->{$name}{counts}{active}
-                              - $bug_count->{$name}{counts}{stalled};
+      die "Can't get RT bug count JSON" unless $res->is_success;
+      my $bug_count = $self->app->decode_json_res($res);
+      for my $name ($self->app->projects) {
+        next unless $bug_count->{$name};
+        $rt_data{ $name } = {
+          open    => 0,
+          stalled => 0,
+        };
 
-      $rt_data{ $name }{stalled} = $bug_count->{$name}{counts}{stalled};
-    }
+        $rt_data{ $name }{open} = $bug_count->{$name}{counts}{active}
+                                - $bug_count->{$name}{counts}{stalled};
 
-    return \%rt_data;
+        $rt_data{ $name }{stalled} = $bug_count->{$name}{counts}{stalled};
+      }
+    };
+
+    return \%rt_data if %rt_data;
+
+    warn "Couldn't get rt.cpan.org data; is it busted?  Ignoring it...\n";
+    return {};
   }
 );
 
