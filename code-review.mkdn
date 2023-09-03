@@ -88,7 +88,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Sub-MicroSig                            | 2018-03-10
 | Sub-Pipeline                            | 2018-03-10
 | Algorithm-Diff                          | 2021-06-17
-| Log-Dispatchouli                        | 2021-06-18
 | Mail-DeliveryStatus-BounceParser        | 2021-06-18
 | App-Addex                               | 2021-06-19
 | App-Addex-AddressBook-Abook             | 2021-06-19
@@ -97,12 +96,9 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Dist-Zilla-Plugin-PodPurler             | 2021-06-19
 | Class-Accessor-Class                    | 2021-06-20
 | Config-Singleton                        | 2021-06-20
-| Email-Abstract                          | 2021-06-20
-| Email-ARF                               | 2021-06-20
 | Querylet                                | 2021-06-20
 | Software-License                        | 2021-06-25
 | Data-Rx-Type-PCRE                       | 2021-07-03
-| CPAN-Mini                               | 2021-10-30
 | Email-Valid                             | 2022-05-29
 | Email-Sender                            | 2022-10-23
 | Games-Dice                              | 2022-11-30
@@ -142,7 +138,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Net-SMTP-SSL                            | 2022-12-31
 | Perl-Critic-Tics                        | 2022-12-31
 | Perl-PrereqScanner                      | 2022-12-31
-| Pod-CYOA                                | 2022-12-31
 | Pod-Elemental-PerlMunger                | 2022-12-31
 | String-Errf                             | 2022-12-31
 | Sub-Exporter                            | 2022-12-31
@@ -152,7 +147,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Test-Reporter-HTTPGateway               | 2022-12-31
 | Test-Routine                            | 2022-12-31
 | Throwable                               | 2022-12-31
-| URI-cpan                                | 2022-12-31
 | Version-Requirements                    | 2022-12-31
 | WWW-AdventCalendar                      | 2022-12-31
 | Data-UUID                               | 2023-01-02
@@ -161,7 +155,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Simple                            | 2023-01-08
 | E-Mail-Acme                             | 2023-01-09
 | Email-Address                           | 2023-01-09
-| Email-MIME-Kit                          | 2023-01-09
 | Email-Stuffer                           | 2023-01-09
 | Dist-Zilla-Plugin-CheckPrereqsIndexed   | 2023-01-11
 | Dist-Zilla-Plugin-PodWeaver             | 2023-01-11
@@ -280,3 +273,10 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | ZMachine                                | 2023-08-07
 | App-Cmd                                 | 2023-08-26
 | String-Switches                         | 2023-08-26
+| CPAN-Mini                               | 2023-09-02
+| Email-Abstract                          | 2023-09-02
+| Email-ARF                               | 2023-09-02
+| Email-MIME-Kit                          | 2023-09-02
+| Log-Dispatchouli                        | 2023-09-02
+| Pod-CYOA                                | 2023-09-02
+| URI-cpan                                | 2023-09-02

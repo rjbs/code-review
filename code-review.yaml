@@ -51,7 +51,7 @@ CPAN-Faker:
 CPAN-Meta-Requirements:
   review: never
 CPAN-Mini:
-  last-review: 2021-10-30
+  last-review: 2023-09-02
 CPAN-Uploader:
   last-review: 2023-01-13
 Cache-Cache:
@@ -139,9 +139,9 @@ Dist-Zilla-PluginBundle-RJBS:
 E-Mail-Acme:
   last-review: 2023-01-09
 Email-ARF:
-  last-review: 2021-06-20
+  last-review: 2023-09-02
 Email-Abstract:
-  last-review: 2021-06-20
+  last-review: 2023-09-02
 Email-Address:
   last-review: 2023-01-09
 Email-Date:
@@ -175,7 +175,7 @@ Email-MIME-ContentType:
 Email-MIME-Encodings:
   last-review: 2023-08-07
 Email-MIME-Kit:
-  last-review: 2023-01-09
+  last-review: 2023-09-02
 Email-MIME-Kit-Assembler-Markdown:
   last-review: 2023-08-07
 Email-MIME-Kit-Assembler-TextifyHTML:
@@ -289,7 +289,7 @@ Log-Dispatch-TextTable:
 Log-Dispatch-UnixSyslog:
   last-review: 2023-08-07
 Log-Dispatchouli:
-  last-review: 2021-06-18
+  last-review: 2023-09-02
 MIME-BodyMunger:
   last-review: 2023-08-07
 MIME-Lite:
@@ -397,7 +397,7 @@ Perl-Critic-Tics:
 Perl-PrereqScanner:
   last-review: 2022-12-31
 Pod-CYOA:
-  last-review: 2022-12-31
+  last-review: 2023-09-02
 Pod-Coverage-TrustPod:
   last-review: 2023-08-07
 Pod-Elemental:
@@ -547,7 +547,7 @@ Tree-File: {}
 Try-Tiny:
   review: never
 URI-cpan:
-  last-review: 2022-12-31
+  last-review: 2023-09-02
 Version-Requirements:
   last-review: 2022-12-31
 WWW-AdventCalendar:
