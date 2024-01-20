@@ -162,7 +162,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Config-MVP                              | 2023-01-13
 | CPAN-Uploader                           | 2023-01-13
 | Data-Rx                                 | 2023-01-18
-| Color-Palette                           | 2023-08-07
 | App-Cmd                                 | 2023-08-26
 | CPAN-Mini                               | 2023-09-02
 | Email-Abstract                          | 2023-09-02
@@ -279,4 +278,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | URI-cpan                                | 2023-11-20
 | WebService-RTMAgent                     | 2023-11-20
 | ZMachine                                | 2023-11-20
+| Color-Palette                           | 2024-01-20
 | Email-Valid                             | 2024-01-20
