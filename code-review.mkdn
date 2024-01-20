@@ -122,7 +122,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-Folder                            | 2022-12-31
 | Email-MIME-Kit-Renderer-TT              | 2022-12-31
 | File-CheckTree                          | 2022-12-31
-| Getopt-Long-Descriptive                 | 2022-12-31
 | Git-Megapull                            | 2022-12-31
 | HTTP-Throwable                          | 2022-12-31
 | JSON-CPAN-Meta                          | 2022-12-31
@@ -215,6 +214,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Games-Bowling-Scorecard                 | 2024-01-20
 | Games-Crossword-Puzzle                  | 2024-01-20
 | Games-Nintendo-Mario                    | 2024-01-20
+| Getopt-Long-Descriptive                 | 2024-01-20
 | Git-Fingerd                             | 2024-01-20
 | JSCalendar-Duration                     | 2024-01-20
 | JSON-Typist                             | 2024-01-20
