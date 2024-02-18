@@ -109,13 +109,9 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | List-MapList                            | 2022-12-30
 | Log-Dispatch-TextTable                  | 2022-12-30
 | Macro-Micro                             | 2022-12-30
-| App-Addex-AddressBook-Apple             | 2022-12-31
-| App-Addex-Plugin-Hiveminder             | 2022-12-31
-| App-Uni                                 | 2022-12-31
 | Catalyst-View-Text-Template             | 2022-12-31
 | CGI-Application-Server                  | 2022-12-31
 | Data-Hive                               | 2022-12-31
-| delicious-backup                        | 2022-12-31
 | Dist-Zilla-Plugin-Git-Describe          | 2022-12-31
 | DNS-Oterica                             | 2022-12-31
 | Email-Folder                            | 2022-12-31
@@ -132,7 +128,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | MooseX-SetOnce                          | 2022-12-31
 | Net-Delicious                           | 2022-12-31
 | Net-SMTP-SSL                            | 2022-12-31
-| Perl-Critic-Tics                        | 2022-12-31
 | Perl-PrereqScanner                      | 2022-12-31
 | Pod-Elemental-PerlMunger                | 2022-12-31
 | String-Errf                             | 2022-12-31
@@ -278,5 +273,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | URI-cpan                                | 2024-01-20
 | WebService-RTMAgent                     | 2024-01-20
 | ZMachine                                | 2024-01-20
+| App-Uni                                 | 2024-02-18
 | Dist-Zilla                              | 2024-02-18
 | Games-Dice                              | 2024-02-18
+| Perl-Critic-Tics                        | 2024-02-18
