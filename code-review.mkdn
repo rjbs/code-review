@@ -99,7 +99,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Querylet                                | 2021-06-20
 | Data-Rx-Type-PCRE                       | 2021-07-03
 | Email-Sender                            | 2022-10-23
-| Games-Dice                              | 2022-11-30
 | PyTAP                                   | 2022-12-24
 | Email-Filter                            | 2022-12-29
 | Email-Pipemailer                        | 2022-12-29
@@ -167,7 +166,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Email-ARF                               | 2023-09-02
 | Email-MIME-Kit                          | 2023-09-02
 | Log-Dispatchouli                        | 2023-09-02
-| Dist-Zilla                              | 2023-11-20
 | Software-License                        | 2023-11-20
 | Acme-Lingua-EN-Inflect-Modern           | 2024-01-20
 | Acme-ProgressBar                        | 2024-01-20
@@ -280,3 +278,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | URI-cpan                                | 2024-01-20
 | WebService-RTMAgent                     | 2024-01-20
 | ZMachine                                | 2024-01-20
+| Dist-Zilla                              | 2024-02-18
+| Games-Dice                              | 2024-02-18

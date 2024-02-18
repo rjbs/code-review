@@ -122,7 +122,7 @@ Data-UUID:
 Date-Span:
   last-review: 2024-01-20
 Dist-Zilla:
-  last-review: 2023-11-20
+  last-review: 2024-02-18
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2023-01-11
@@ -232,7 +232,7 @@ Games-Bowling-Scorecard:
 Games-Crossword-Puzzle:
   last-review: 2024-01-20
 Games-Dice:
-  last-review: 2022-11-30
+  last-review: 2024-02-18
 Games-Goban:
   last-review: 2022-12-29
 Games-Nintendo-Mario:
