@@ -88,7 +88,7 @@ Config-Singleton:
 DBIx-Locker:
   last-review: 2024-01-20
 DNS-Oterica:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Data-Bucketeer:
   last-review: 2024-01-20
 Data-GUID:
@@ -96,7 +96,7 @@ Data-GUID:
 Data-GUID-URLSafe:
   last-review: 2024-01-20
 Data-Hive:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Data-InputMonster:
   last-review: 2021-06-20
   review: never
@@ -129,7 +129,7 @@ Dist-Zilla:
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2023-01-11
 Dist-Zilla-Plugin-Git-Describe:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Dist-Zilla-Plugin-PodPurler:
   last-review: 2021-06-19
 Dist-Zilla-Plugin-PodWeaver:
@@ -264,7 +264,7 @@ HTML-Widget-Plugin-JS:
 HTML-Widget-Plugin-Struct:
   last-review: 2016-10-31
 HTTP-Throwable:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 IO-TieCombine:
   last-review: 2016-10-31
 IPC-Run3:
@@ -356,9 +356,9 @@ MooseX-ClassCompositor:
 MooseX-ComposedBehavior:
   last-review: 2024-01-20
 MooseX-OneArgNew:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 MooseX-SetOnce:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 MooseX-Storage-Format-JSONpm:
   last-review: 2024-01-20
 MooseX-Types-Perl:
@@ -397,7 +397,7 @@ Perl-Critic-Lax:
 Perl-Critic-Tics:
   last-review: 2024-02-18
 Perl-PrereqScanner:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Pod-CYOA:
   last-review: 2024-01-20
 Pod-Coverage-TrustPod:
@@ -476,7 +476,7 @@ String-TagString:
 String-Truncate:
   last-review: 2024-01-20
 Sub-Exporter:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Sub-Exporter-ForMethods:
   last-review: 2024-01-20
 Sub-Exporter-GlobExporter:
@@ -486,7 +486,7 @@ Sub-Exporter-Lexical:
 Sub-Import:
   last-review: 2024-01-20
 Sub-Install:
-  last-review: 2022-12-31
+  last-review: 2024-02-22
 Sub-MicroSig:
   last-review: 2018-03-10
 Sub-Pipeline:
@@ -495,6 +495,7 @@ Task-BeLike-RJBS:
   last-review: 2024-01-20
 Task-Deprecations5_12:
   last-review: 2022-12-31
+  review: never
 Task-Email-PEP-All:
   last-review: 2013-06-20
 Task-Email-PEP-NoStore:
