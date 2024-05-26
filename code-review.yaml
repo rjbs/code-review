@@ -124,7 +124,7 @@ Data-UUID:
 Date-Span:
   last-review: 2024-01-20
 Dist-Zilla:
-  last-review: 2024-02-18
+  last-review: 2024-05-25
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2023-01-11
@@ -138,6 +138,7 @@ Dist-Zilla-Plugin-TaskWeaver:
   last-review: 2024-01-20
 Dist-Zilla-PluginBundle-RJBS:
   last-review: 2024-01-20
+Dist-Zilla-Stash-OnePasswordLogin: {}
 E-Mail-Acme:
   last-review: 2023-01-09
 Email-ARF:
@@ -388,6 +389,8 @@ Parse-GutenbergRoget:
   last-review: 2016-10-09
 Parse-IRCLog:
   last-review: 2016-11-19
+Password-OnePassword-OPCLI:
+  last-review: 2024-05-25
 Path-Resolver:
   last-review: 2024-01-20
 PathTools:
@@ -491,6 +494,7 @@ Sub-MicroSig:
   last-review: 2018-03-10
 Sub-Pipeline:
   last-review: 2018-03-10
+  review: never
 Task-BeLike-RJBS:
   last-review: 2024-01-20
 Task-Deprecations5_12:

@@ -21,6 +21,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
+| Dist-Zilla-Stash-OnePasswordLogin       | -
 | Email-Store                             | -
 | Kwiki-IRCMode                           | -
 | Mail-Audit-Razor                        | -
@@ -86,7 +87,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Rubric-Entry-Formatter-KwikiFormatish   | 2018-03-10
 | Rubric-Entry-Formatter-Markdown         | 2018-03-10
 | Sub-MicroSig                            | 2018-03-10
-| Sub-Pipeline                            | 2018-03-10
 | Algorithm-Diff                          | 2021-06-17
 | Mail-DeliveryStatus-BounceParser        | 2021-06-18
 | App-Addex                               | 2021-06-19
@@ -264,7 +264,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | WebService-RTMAgent                     | 2024-01-20
 | ZMachine                                | 2024-01-20
 | App-Uni                                 | 2024-02-18
-| Dist-Zilla                              | 2024-02-18
 | Games-Dice                              | 2024-02-18
 | Perl-Critic-Tics                        | 2024-02-18
 | Data-Hive                               | 2024-02-22
@@ -276,3 +275,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Perl-PrereqScanner                      | 2024-02-22
 | Sub-Exporter                            | 2024-02-22
 | Sub-Install                             | 2024-02-22
+| Dist-Zilla                              | 2024-05-25
+| Password-OnePassword-OPCLI              | 2024-05-25
