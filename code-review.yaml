@@ -108,6 +108,8 @@ Data-Message:
   last-review: 2016-08-19
 Data-OptList:
   last-review: 2025-05-25
+Data-Printer-Filter-JMAP: {}
+Data-Printer-Filter-StructDumb: {}
 Data-Rx:
   last-review: 2023-01-18
 Data-Rx-Type-MooseTC:
@@ -125,7 +127,7 @@ Data-UUID:
 Date-Span:
   last-review: 2025-05-25
 Dist-Zilla:
-  last-review: 2024-05-25
+  last-review: 2025-11-07
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2023-01-11
@@ -376,6 +378,7 @@ Net-Delicious:
   last-review: 2022-12-31
 Net-Finger-Server:
   last-review: 2025-05-25
+Net-Flickr-Backup: {}
 Net-SMTP-SSL:
   last-review: 2022-12-31
 Number-Format: {}
