@@ -22,8 +22,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
 | Data-Difference                         | -
-| Data-Printer-Filter-JMAP                | -
-| Data-Printer-Filter-StructDumb          | -
 | Email-Store                             | -
 | Kwiki-IRCMode                           | -
 | Mail-Audit-Razor                        | -
@@ -284,3 +282,5 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | WebService-RTMAgent                     | 2025-05-25
 | ZMachine                                | 2025-05-25
 | Dist-Zilla                              | 2025-11-07
+| Data-Printer-Filter-JMAP                | 2025-12-28
+| Data-Printer-Filter-StructDumb          | 2025-12-28
