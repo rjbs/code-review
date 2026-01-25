@@ -281,6 +281,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | URI-cpan                                | 2025-05-25
 | WebService-RTMAgent                     | 2025-05-25
 | ZMachine                                | 2025-05-25
-| Dist-Zilla                              | 2025-11-07
 | Data-Printer-Filter-JMAP                | 2025-12-28
 | Data-Printer-Filter-StructDumb          | 2025-12-28
+| CPAN-Meta                               | 2026-01-25
+| Dist-Zilla                              | 2026-01-25

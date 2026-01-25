@@ -50,6 +50,8 @@ CGI-Form-Table:
   last-review: 2013-07-01
 CPAN-Faker:
   last-review: 2025-05-25
+CPAN-Meta:
+  last-review: 2026-01-25
 CPAN-Meta-Requirements:
   review: never
 CPAN-Mini:
@@ -129,7 +131,7 @@ Data-UUID:
 Date-Span:
   last-review: 2025-05-25
 Dist-Zilla:
-  last-review: 2025-11-07
+  last-review: 2026-01-25
   review-every: 1w
 Dist-Zilla-Plugin-CheckPrereqsIndexed:
   last-review: 2023-01-11
