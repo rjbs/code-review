@@ -21,7 +21,6 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 
 | PROJECT NAME                            | LAST REVIEW
 | --------------------------------------- | -------------
-| Data-Difference                         | -
 | Email-Store                             | -
 | Kwiki-IRCMode                           | -
 | Mail-Audit-Razor                        | -
@@ -189,6 +188,7 @@ file](https://github.com/rjbs/code-review/blob/main/code-review) if you like.
 | Config-MVP-Reader-INI                   | 2026-02-22
 | CPAN-Faker                              | 2026-02-22
 | Data-Bucketeer                          | 2026-02-22
+| Data-Difference                         | 2026-02-22
 | Data-GUID                               | 2026-02-22
 | Data-GUID-URLSafe                       | 2026-02-22
 | Data-Printer-Filter-JMAP                | 2026-02-22

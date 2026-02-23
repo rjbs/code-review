@@ -93,7 +93,8 @@ DNS-Oterica:
   last-review: 2024-02-22
 Data-Bucketeer:
   last-review: 2026-02-22
-Data-Difference: {}
+Data-Difference:
+  last-review: 2026-02-22
 Data-GUID:
   last-review: 2026-02-22
 Data-GUID-URLSafe:
